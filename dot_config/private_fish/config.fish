@@ -20,3 +20,6 @@ function jp
     echo $argv[1] | jq "."
   end
 end
+
+zoxide init fish | source
+starship init fish | source
