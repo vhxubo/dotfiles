@@ -1,0 +1,14 @@
+gui:
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
+  showIcons: true
+  language: 'en'
+git:
+  branchLogCmd: git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --color=always
+  log:
+    showGraph: 'always'
+os:
+  editCommand: 'lvim'
