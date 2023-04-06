@@ -57,7 +57,11 @@ lvim.builtin.which_key.mappings["S"] = {
   Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
 }
 lvim.builtin.which_key.mappings["F"] = { "<cmd>Telescope file_browser<CR>", "Open file browser" }
-lvim.builtin.which_key.mappings["su"] = { "<cmd>Telescope bookmarks<CR>", "Open bookmarks in browser" }
+lvim.builtin.which_key.mappings["sm"] = { "<cmd>Telescope bookmarks<CR>", "Open bookmarks in browser" }
+lvim.builtin.which_key.mappings["sg"] = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+  "Live grep args picker" }
+local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+lvim.builtin.which_key.mappings["sc"] = { live_grep_args_shortcuts.grep_word_under_cursor, "grep args picker" }
 lvim.builtin.which_key.mappings["sn"] = { "<cmd>Telescope neoclip<CR>", "Clipboard list" }
 lvim.builtin.which_key.mappings['gf'] = { "<cmd>DiffviewFileHistory %<CR>", "Git diff current file" }
 lvim.builtin.which_key.mappings['gd'] = { "<cmd>DiffviewOpen<CR>", "Git Diff" }
@@ -73,7 +77,7 @@ lvim.colorscheme = "tokyonight-moon"
 -- end
 
 lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.alpha.mode = "startify"
 lvim.builtin.terminal.active = true
 -- lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.view.width = 40
@@ -365,7 +369,8 @@ lvim.plugins = {
     }
   },
   { "nvim-telescope/telescope-media-files.nvim" },
-  { "nvim-telescope/telescope-ui-select.nvim" }
+  { "nvim-telescope/telescope-ui-select.nvim" },
+  { "nvim-telescope/telescope-live-grep-args.nvim" },
 }
 
 lvim.builtin.telescope.on_config_done = function(telescope)
@@ -375,6 +380,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "bookmarks")
   pcall(telescope.load_extension, "media_files")
   pcall(telescope.load_extension, "ui-select")
+  pcall(telescope.load_extension, "live_grep_args")
 end
 lvim.builtin.telescope.extensions["bookmarks"] = {
   selected_browser = "chromium",
