@@ -9,6 +9,15 @@ gui:
 git:
   branchLogCmd: git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --color=always
   log:
-    showGraph: 'always'
+    order: 'default'
+    showGraph: always
+  paging:
+    colorArg: always
+    useConfig: true
 os:
   editCommand: 'lvim'
+keybinding:
+  universal:
+    quit: '<esc>'
+    quit-alt1: '<c-c>' 
+    return: 'q'

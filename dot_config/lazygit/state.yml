@@ -1,10 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/vhxubo/文档/learn/element
 - /home/vhxubo/文档/work/gomk-f-dcs
-- /home/vhxubo/文档/learn/vue
-- /home/vhxubo/文档/learn/git
 - /home/vhxubo/文档/work/gomk-b-nocodb
+- /home/vhxubo/.local/share/chezmoi
+- /home/vhxubo/文档/learn/vue
 - /home/vhxubo/文档/projects/vhxubo-s-snippets
+- /home/vhxubo/文档/learn/git
 - /home/vhxubo/文档/learn/nuxt-playground
 - /home/vhxubo/文档/learn/Explorer-Bookmark
 - /home/vhxubo/文档/work/gomk-f-visualization
