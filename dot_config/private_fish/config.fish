@@ -3,7 +3,16 @@ if status is-interactive
 end
 
 alias nvim="lvim"
-alias pm="pnpm"
+alias pn="pnpm"
+alias pd="pnpm dev"
+alias n="lvim ."
+alias lgit="lazygit"
+alias t="tmux"
+alias tt="t attach -t"
+alias ts="t new -s"
+alias close="shutdown -h now"
+
+set -gx EDITOR lvim
 
 function fish_proxy
   set -xg ALL_PROXY http://localhost:7890
@@ -11,14 +20,6 @@ end
 
 function noproxy
   set -e ALL_PROXY
-end
-
-function jp
-  if test -n "$argv[2]"
-    echo $argv[1] | jq "$argv[2] | fromjson"
-  else
-    echo $argv[1] | jq "."
-  end
 end
 
 zoxide init fish | source
