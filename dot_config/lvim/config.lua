@@ -65,11 +65,11 @@ lvim.builtin.which_key.mappings["sc"] = { live_grep_args_shortcuts.grep_word_und
 lvim.builtin.which_key.mappings["sn"] = { "<cmd>Telescope neoclip<CR>", "Clipboard list" }
 lvim.builtin.which_key.mappings['gf'] = { "<cmd>DiffviewFileHistory %<CR>", "Git diff current file" }
 lvim.builtin.which_key.mappings['gd'] = { "<cmd>DiffviewOpen<CR>", "Git Diff" }
-lvim.builtin.which_key.mappings['gv'] = { "<cmd>Gitsigns toggle_linehl<CR>", "Git Diff" }
+lvim.builtin.which_key.mappings['gq'] = { "<cmd>DiffviewClose<CR>", "Close Git Diffview" }
 
 -- -- Change theme settings
 -- lvim.colorscheme = "tokyonight-day"
-lvim.colorscheme = "tokyonight-moon"
+lvim.colorscheme = "molokai"
 
 -- local h = tonumber(os.date("%H"))
 -- if 7 <= h and h < 18 then lvim.colorscheme = "tokyonight-day"
@@ -77,7 +77,7 @@ lvim.colorscheme = "tokyonight-moon"
 -- end
 
 lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "startify"
+-- lvim.builtin.alpha.mode = "startify"
 lvim.builtin.terminal.active = true
 -- lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.view.width = 40
@@ -173,6 +173,8 @@ lvim.plugins = {
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
   { "lilydjwg/fcitx.vim" },
+  { "ayu-theme/ayu-vim" },
+  { "tomasr/molokai" },
   { "chentoast/marks.nvim",
     config = function()
       require("marks").setup {}
@@ -371,6 +373,10 @@ lvim.plugins = {
   { "nvim-telescope/telescope-media-files.nvim" },
   { "nvim-telescope/telescope-ui-select.nvim" },
   { "nvim-telescope/telescope-live-grep-args.nvim" },
+  { "tpope/vim-obsession" },
+  { "christoomey/vim-tmux-navigator" },
+  { "Exafunction/codeium.vim" },
+  { "mg979/vim-visual-multi" },
 }
 
 lvim.builtin.telescope.on_config_done = function(telescope)
