@@ -18,4 +18,14 @@ return {
     dependencies = "hrsh7th/nvim-cmp",
     event = "InsertEnter",
   },
+  {
+    "echasnovski/mini.ai",
+    opts = function()
+      return {
+        custom_textobjects = {
+          t = { "<([%w%-]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
+        },
+      }
+    end,
+  },
 }
