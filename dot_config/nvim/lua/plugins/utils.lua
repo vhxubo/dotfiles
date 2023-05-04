@@ -1,5 +1,5 @@
 return {
-  { "lilydjwg/fcitx.vim" },
+  { "h-hg/fcitx.nvim" },
   { "wakatime/vim-wakatime" },
   { "christoomey/vim-tmux-navigator" },
   {

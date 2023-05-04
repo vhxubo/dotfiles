@@ -30,7 +30,7 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
-      require("colorizer").setup({ "css", "scss", "html", "javascript", "vue", "vim" }, {
+      require("colorizer").setup({ "*" }, {
         css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
         mode = "foreground", -- Set the display mode.
       })
