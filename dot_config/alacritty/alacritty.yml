@@ -1,6 +1,3 @@
-# import:
-#    - ~/.config/alacritty/themes/themes/snazzy.yaml
-
 live_config_reload: true
 font:
   normal:
@@ -19,16 +16,43 @@ font:
     family: JetBrainsMono Nerd Font
     style: Bold Italic
 
-  size: 15
+  size: 16
 cursor:
   style:
-    shape: Underline
     blinking: Always
   blink_interval: 500
   unfocused_hollow: true
-  thickness: 0.25
 
 env:
   WINIT_X11_SCALE_FACTOR: "1.0"
 shell:
   program: /usr/bin/fish
+
+# Colors (Snazzy)
+colors:
+  # Default colors
+  primary:
+    background: "0x282a36" ##282a36
+    foreground: "0xeff0eb" ##eff0eb
+
+  # Normal colors
+  normal:
+    black: "0x282a36" ##282a36
+    red: "0xff5c57" ##ff5c57
+    green: "0xa6e22e" ##a6e22e
+    yellow: "0xfd971f" ##fd971f
+    blue: "0x57c7ff" ##57c7ff
+    magenta: "0xf92672" ##f92672
+    cyan: "0x9aedfe" ##9aedfe
+    white: "0xf1f1f0" ##f1f1f0
+
+  # Bright colors
+  bright:
+    black: "0x686868" ##686868
+    red: "0xff5c57" ##ff5c57
+    green: "0xa6e22e" ##a6e22e
+    yellow: "0xfd971f" ##fd971f
+    blue: "0x57c7ff" ##57c7ff
+    magenta: "0xf92672" ##f92672
+    cyan: "0x9aedfe" ##9aedfe
+    white: "0xf1f1f0" ##f1f1f0
