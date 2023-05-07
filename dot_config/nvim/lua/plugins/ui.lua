@@ -1,21 +1,30 @@
 return {
   { "ellisonleao/gruvbox.nvim" },
-  { "sickill/vim-monokai" },
   { "vhxubo/molokai" },
 
   {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "gruvbox",
-      -- colorscheme = "monokai",
       colorscheme = "molokai",
     },
   },
   {
     "folke/zen-mode.nvim",
-    config = true,
+    config = function()
+      require("zen-mode").setup({
+        window = {
+          width = 85,
+          height = 0.80,
+          options = {
+            signcolumn = "no",
+            number = false,
+            relativenumber = false,
+          },
+        },
+      })
+    end,
   },
-  { "m-demare/hlargs.nvim", config = true },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
