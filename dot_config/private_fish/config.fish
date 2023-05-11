@@ -12,6 +12,8 @@ alias ta="t attach"
 alias ts="t new -s"
 alias tt="t attach -t"
 alias gg="ghq get"
+alias rr="ranger"
+alias czi="chezmoi"
 
 set -gx EDITOR nvim
 set fzf_fd_opts --hidden --exclude=.git
