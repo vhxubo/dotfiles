@@ -26,17 +26,6 @@ return {
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "fish",
-        "vue",
-        "css",
-        "scss",
-      })
-    end,
-  },
-  {
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({ "*" }, {
@@ -51,6 +40,12 @@ return {
       timeout = 2000,
       render = "minimal",
       stages = "static",
+    },
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
     },
   },
 }
