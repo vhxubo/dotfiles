@@ -19,7 +19,7 @@ set -gx EDITOR nvim
 set fzf_fd_opts --hidden --exclude=.git
 
 function fish_proxy
-    set -xg ALL_PROXY http://localhost:7890
+    set -xg ALL_PROXY http://localhost:20171
 end
 
 function noproxy
