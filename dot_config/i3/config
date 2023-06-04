@@ -63,7 +63,7 @@ bindsym $mod+c kill
 #
 bindsym $mod+o exec chromium
 bindsym $mod+p exec "flameshot gui"
-bindsym $mod+b exec "i3lock --color 101010"
+bindsym $mod+b exec "i3lock --color 0B1013"
 bindsym $mod+t exec thunar
 
 # start dmenu (a program launcher)
