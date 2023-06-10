@@ -7,6 +7,12 @@ return {
   },
   {
     "telescope.nvim",
+    config = function()
+      require("telescope").setup({ defaults = { file_ignore_patterns = { "public" } } })
+    end,
+  },
+  {
+    "telescope.nvim",
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
