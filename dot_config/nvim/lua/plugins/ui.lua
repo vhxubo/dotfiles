@@ -1,13 +1,18 @@
 return {
   { "ellisonleao/gruvbox.nvim" },
   { "vhxubo/molokai" },
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+  },
 
   {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "gruvbox",
       -- colorscheme = "molokai",
-      colorscheme = "catppuccin",
+      -- colorscheme = "catppuccin",
+      colorscheme = "onedark",
     },
   },
   {
