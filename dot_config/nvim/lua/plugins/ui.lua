@@ -5,6 +5,8 @@ return {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
   },
+  { "EdenEast/nightfox.nvim" },
+  { "rebelot/kanagawa.nvim" },
 
   {
     "LazyVim/LazyVim",
@@ -12,7 +14,10 @@ return {
       -- colorscheme = "gruvbox",
       -- colorscheme = "molokai",
       -- colorscheme = "catppuccin",
-      colorscheme = "onedark",
+      -- colorscheme = "onedark",
+      -- colorscheme = "onedark_dark",
+      -- colorscheme = "nightfox",
+      colorscheme = "kanagawa",
     },
   },
   {

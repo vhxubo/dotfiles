@@ -1,26 +1,30 @@
 return {
   { "h-hg/fcitx.nvim" },
   { "wakatime/vim-wakatime" },
-  { "christoomey/vim-tmux-navigator" },
   {
-    "tpope/vim-fugitive",
-    cmd = {
-      "G",
-      "Git",
-      "Gdiffsplit",
-      "Gread",
-      "Gwrite",
-      "Ggrep",
-      "GMove",
-      "GDelete",
-      "GBrowse",
-      "GRemove",
-      "GRename",
-      "Glgrep",
-      "Gedit",
-    },
-    ft = { "fugitive" },
+    "LunarVim/bigfile.nvim",
+    config = function()
+      require("bigfile").setup({
+        filesize = 2, -- size of the file in MiB, the plugin round file sizes to the closest MiB
+        pattern = { "*" }, -- autocmd pattern or function see <### Overriding the detection of big files>
+        features = { -- features to disable
+          "indent_blankline",
+          "illuminate",
+          "lsp",
+          "treesitter",
+          "syntax",
+          "matchparen",
+          "vimopts",
+          "filetype",
+        },
+      })
+    end,
   },
+  {
+    "christoomey/vim-tmux-navigator",
+  },
+  { "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", config = true },
+  { "sindrets/diffview.nvim", config = true },
   {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
