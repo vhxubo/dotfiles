@@ -29,7 +29,16 @@ return {
     end,
   },
   {
-    "mg979/vim-visual-multi",
-    config = function() end,
+    "rareitems/printer.nvim",
+    config = function()
+      require("printer").setup({
+        keymap = "gp",
+        formatters = {
+          vue = function(text_inside, text_var)
+            return string.format('console.log("%s = ", %s)', text_inside, text_var)
+          end,
+        },
+      })
+    end,
   },
 }

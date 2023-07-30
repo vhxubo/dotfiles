@@ -23,8 +23,13 @@ return {
   {
     "christoomey/vim-tmux-navigator",
   },
+  {
+    "mg979/vim-visual-multi",
+    config = function() end,
+  },
   { "NeogitOrg/neogit", dependencies = "nvim-lua/plenary.nvim", config = true },
   { "sindrets/diffview.nvim", config = true },
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
   {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
@@ -39,6 +44,12 @@ return {
         },
         lastplace_open_folds = true,
       })
+    end,
+  },
+  {
+    "johmsalas/text-case.nvim",
+    config = function()
+      require("textcase").setup({})
     end,
   },
 }
