@@ -1,11 +1,11 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
-  { "vhxubo/molokai" },
-  {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
-  },
-  { "EdenEast/nightfox.nvim" },
+  -- { "ellisonleao/gruvbox.nvim" },
+  -- { "vhxubo/molokai" },
+  -- {
+  --   "olimorris/onedarkpro.nvim",
+  --   priority = 1000, -- Ensure it loads first
+  -- },
+  -- { "EdenEast/nightfox.nvim" },
   { "rebelot/kanagawa.nvim" },
 
   {
@@ -46,26 +46,11 @@ return {
     end,
   },
   {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 2000,
-      render = "minimal",
-      stages = "static",
-    },
-  },
-  {
     "lewis6991/gitsigns.nvim",
     opts = {
       current_line_blame = true,
     },
   },
-  -- {
-  --   "petertriho/nvim-scrollbar",
-  --   config = function()
-  --     require("scrollbar").setup()
-  --     require("scrollbar.handlers.gitsigns").setup()
-  --   end,
-  -- },
   {
     "dstein64/nvim-scrollview",
     config = function()
@@ -80,5 +65,13 @@ return {
       })
       require("scrollview.contrib.gitsigns").setup()
     end,
+  },
+  {
+    "mini.hipatterns",
+    opts = {
+      highlighters = {
+        hardcode = { pattern = "%f[%w]()hard code()%f[%W]", group = "MiniHipatternsHack" },
+      },
+    },
   },
 }
