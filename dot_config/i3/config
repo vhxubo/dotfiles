@@ -62,9 +62,10 @@ bindsym $mod+c kill
 # bindsym $mod+q kill
 #
 bindsym $mod+o exec chromium
-bindsym $mod+p exec "flameshot gui"
+bindsym $mod+p exec --no-startup-id flameshot gui
 bindsym $mod+shift+x exec betterlockscreen -l dim
 bindsym $mod+t exec thunar
+bindsym $mod+x exec xmodmap ~/.Xmodmap
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
@@ -226,7 +227,7 @@ bindsym $mod+r mode "resize"
 # }
 
 gaps inner 16
-exec --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.png
+exec --no-startup-id feh --bg-fill --no-xinerama ~/.config/i3/wallpaper.jpg
 # exec_always --no-startup-id utools
 exec_always --no-startup-id albert
 exec_always --no-startup-id xmodmap ~/.Xmodmap
