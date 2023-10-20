@@ -21,22 +21,6 @@ return {
     },
   },
   {
-    "folke/zen-mode.nvim",
-    config = function()
-      require("zen-mode").setup({
-        window = {
-          width = 85,
-          height = 0.80,
-          options = {
-            signcolumn = "no",
-            number = false,
-            relativenumber = false,
-          },
-        },
-      })
-    end,
-  },
-  {
     "norcalli/nvim-colorizer.lua",
     config = function()
       require("colorizer").setup({ "*" }, {
@@ -44,12 +28,6 @@ return {
         mode = "foreground", -- Set the display mode.
       })
     end,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      current_line_blame = true,
-    },
   },
   {
     "dstein64/nvim-scrollview",
@@ -65,13 +43,5 @@ return {
       })
       require("scrollview.contrib.gitsigns").setup()
     end,
-  },
-  {
-    "mini.hipatterns",
-    opts = {
-      highlighters = {
-        hardcode = { pattern = "%f[%w]()hard code()%f[%W]", group = "MiniHipatternsHack" },
-      },
-    },
   },
 }

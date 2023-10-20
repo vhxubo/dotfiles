@@ -1,25 +1,9 @@
 return {
   {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    config = true,
-  },
-  {
     "telescope.nvim",
     config = function()
       require("telescope").setup({ defaults = { file_ignore_patterns = { "public" } } })
     end,
-  },
-  {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
-    },
   },
   {
     "telescope.nvim",
