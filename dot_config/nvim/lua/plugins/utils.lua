@@ -4,4 +4,14 @@ return {
   { "mg979/vim-visual-multi" },
   { "tpope/vim-fugitive" },
   { "johmsalas/text-case.nvim", config = true },
+  {
+    "abecodes/tabout.nvim",
+    event = "InsertEnter",
+    config = true,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp",
+      "L3MON4D3/LuaSnip",
+    },
+  },
 }
