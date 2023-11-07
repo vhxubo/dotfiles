@@ -14,10 +14,3 @@ git:
   paging:
     colorArg: always
     useConfig: true
-os:
-  edit: "nvim"
-keybinding:
-  universal:
-    quit: "<esc>"
-    quit-alt1: "<c-c>"
-    return: "q"
