@@ -1,22 +1,23 @@
 live_config_reload: true
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: InconsolataNerdFontMono
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: InconsolataNerdFontMono
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font
+    family: InconsolataNerdFontMono
     style: Italic
 
   bold_italic:
-    family: JetBrainsMono Nerd Font
+    family: InconsolataNerdFontMono
     style: Bold Italic
 
-  size: 16
+  size: 22
+
 cursor:
   style:
     blinking: Always
@@ -25,34 +26,37 @@ cursor:
 
 env:
   WINIT_X11_SCALE_FACTOR: "1.0"
-shell:
-  program: /usr/bin/fish
 
-# Colors (Snazzy)
+# Kanagawa Alacritty Colors
 colors:
-  # Default colors
   primary:
-    background: "0x282a36" ##282a36
-    foreground: "0xeff0eb" ##eff0eb
+    background: "0x1f1f28"
+    foreground: "0xdcd7ba"
 
-  # Normal colors
   normal:
-    black: "0x282a36" ##282a36
-    red: "0xff5c57" ##ff5c57
-    green: "0xa6e22e" ##a6e22e
-    yellow: "0xfd971f" ##fd971f
-    blue: "0x57c7ff" ##57c7ff
-    magenta: "0xf92672" ##f92672
-    cyan: "0x9aedfe" ##9aedfe
-    white: "0xf1f1f0" ##f1f1f0
+    black: "0x090618"
+    red: "0xc34043"
+    green: "0x76946a"
+    yellow: "0xc0a36e"
+    blue: "0x7e9cd8"
+    magenta: "0x957fb8"
+    cyan: "0x6a9589"
+    white: "0xc8c093"
 
-  # Bright colors
   bright:
-    black: "0x686868" ##686868
-    red: "0xff5c57" ##ff5c57
-    green: "0xa6e22e" ##a6e22e
-    yellow: "0xfd971f" ##fd971f
-    blue: "0x57c7ff" ##57c7ff
-    magenta: "0xf92672" ##f92672
-    cyan: "0x9aedfe" ##9aedfe
-    white: "0xf1f1f0" ##f1f1f0
+    black: "0x727169"
+    red: "0xe82424"
+    green: "0x98bb6c"
+    yellow: "0xe6c384"
+    blue: "0x7fb4ca"
+    magenta: "0x938aa9"
+    cyan: "0x7aa89f"
+    white: "0xdcd7ba"
+
+  selection:
+    background: "0x2d4f67"
+    foreground: "0xc8c093"
+
+  indexed_colors:
+    - { index: 16, color: "0xffa066" }
+    - { index: 17, color: "0xff5d62" }
