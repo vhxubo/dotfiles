@@ -34,3 +34,7 @@ zinit light ptavares/zsh-exa
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(fnm env --use-on-cd)"
+eval "$(thefuck --alias)"
+
+eval $(thefuck --alias)
