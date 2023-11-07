@@ -14,6 +14,7 @@ alias tt="t attach -t"
 alias gg="ghq get"
 alias rr="ranger"
 alias czi="chezmoi"
+alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
 
 set -gx EDITOR nvim
 set fzf_fd_opts --hidden --exclude=.git
@@ -24,6 +25,14 @@ end
 
 function noproxy
     set -e ALL_PROXY
+end
+
+function jc
+    xclip -o | jless
+end
+
+function jcp
+    xclip -o | sed -e 's/\\\"/"/g' | sed -e 's/"{/"/g' | jless
 end
 
 zoxide init fish | source
