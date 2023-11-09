@@ -22,4 +22,12 @@ return {
       require("scrollview.contrib.gitsigns").setup()
     end,
   },
+  {
+    "3rd/image.nvim",
+    config = function()
+      require("image").setup({
+        backend = "ueberzug",
+      })
+    end,
+  },
 }
