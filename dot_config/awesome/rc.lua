@@ -18,7 +18,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local lain = require("lain")
---local menubar       = require("menubar")
+local menubar = require("menubar")
 local freedesktop = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
@@ -70,8 +70,7 @@ local function run_once(cmd_arr)
 	end
 end
 
-run_once({ "urxvtd", "unclutter -root", "picom", "fcitx5 -d", "albert" }) -- comma-separated entries
-
+run_once({ "unclutter -root", "picom", "fcitx5 -d", "albert" }) -- comma-separated entries
 -- This function implements the XDG autostart specification
 --[[
 awful.spawn.with_shell(
@@ -111,11 +110,11 @@ local browser = "chromium"
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
-	awful.layout.suit.floating,
 	awful.layout.suit.tile,
 	awful.layout.suit.tile.left,
 	awful.layout.suit.tile.bottom,
 	awful.layout.suit.tile.top,
+	awful.layout.suit.floating,
 	--awful.layout.suit.fair,
 	--awful.layout.suit.fair.horizontal,
 	--awful.layout.suit.spiral,
@@ -561,10 +560,11 @@ globalkeys = mytable.join(
 	end, { description = "run browser", group = "launcher" }),
 
 	-- Default
-	--[[ Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
-    --]]
+	---[[ Menubar
+	awful.key({ modkey }, "p", function()
+		menubar.show()
+	end, { description = "show the menubar", group = "launcher" }),
+	--]]
 	--[[ dmenu
     awful.key({ modkey }, "x", function ()
             os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
@@ -828,10 +828,10 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-	c:emit_signal("request::activate", "mouse_enter", { raise = vi_focus })
-end)
-
+-- client.connect_signal("mouse::enter", function(c)
+-- 	c:emit_signal("request::activate", "mouse_enter", { raise = vi_focus })
+-- end)
+--
 client.connect_signal("focus", function(c)
 	c.border_color = beautiful.border_focus
 end)
