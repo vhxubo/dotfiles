@@ -32,9 +32,34 @@ zinit light ael-code/zsh-colored-man-pages
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light ptavares/zsh-exa
 
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+autoload -Uz compinit && compinit
+
+alias pn="pnpm"
+alias pd="pnpm dev"
+alias n="nvim ."
+alias lgit="lazygit"
+alias t="tmux"
+alias ta="t attach"
+alias ts="t new -s"
+alias tt="t attach -t"
+alias gg="ghq get"
+alias rr="ranger"
+alias czi="chezmoi"
+alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
+alias xr="xrandr --output HDMI-1 --auto --primary --left-of eDP-1"
+alias lock="betterlockscreen -l dim"
+
+export EDITOR="nvim"
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(thefuck --alias)"
 
-eval $(thefuck --alias)
+
+[ -f ~/.inshellisense/key-bindings.zsh ] && source ~/.inshellisense/key-bindings.zsh
