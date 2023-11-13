@@ -1,11 +1,10 @@
 return {
-  { "tpope/vim-fugitive", keys = {
-    {
-      "<leader>G",
-      "<cmd>G<cr>",
-      desc = "Git status",
-    },
-  } },
+  {
+    "tpope/vim-fugitive",
+    config = function()
+      vim.keymap.set("n", "<leader>G", "<cmd>G<cr>")
+    end,
+  },
   {
     "sindrets/diffview.nvim",
     keys = {
