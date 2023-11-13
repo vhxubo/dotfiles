@@ -241,7 +241,7 @@ end)
 --]]
 
 -- Set the Menubar terminal for applications that require it
---menubar.utils.terminal = terminal
+menubar.utils.terminal = terminal
 
 -- }}}
 
