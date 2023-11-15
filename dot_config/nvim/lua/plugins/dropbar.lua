@@ -1,6 +1,10 @@
+-- stylua: ignore
+if true then return {} end
+
 return {
   {
     "Bekaboo/dropbar.nvim",
+    enable = false,
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
     },
