@@ -7,4 +7,16 @@ return {
       end
     end,
   },
+  {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "vue-language-server",
+        "emmet-ls",
+        "css-lsp",
+        "tailwindcss-language-server",
+        "typescript-language-server",
+      })
+    end,
+  },
 }
