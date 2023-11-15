@@ -37,7 +37,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt SHARE_HISTORY
-autoload -Uz compinit && compinit
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
 
 alias pn="pnpm"
 alias pd="pnpm dev"
@@ -63,3 +66,5 @@ eval "$(thefuck --alias)"
 
 
 [ -f ~/.inshellisense/key-bindings.zsh ] && source ~/.inshellisense/key-bindings.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
