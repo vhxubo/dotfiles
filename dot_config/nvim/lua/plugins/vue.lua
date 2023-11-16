@@ -12,7 +12,7 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "vue-language-server",
-        "emmet-ls",
+        "emmet-language-server",
         "css-lsp",
         "tailwindcss-language-server",
         "typescript-language-server",
