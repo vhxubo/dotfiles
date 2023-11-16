@@ -1,5 +1,14 @@
 return {
-  { "tyru/open-browser.vim" },
+  {
+    "tyru/open-browser.vim",
+    keys = {
+      {
+        "<leader>o",
+        ":OpenBrowserSmartSearch ",
+        desc = "Open Browser Smart Search",
+      },
+    },
+  },
   {
     "dhruvmanila/browser-bookmarks.nvim",
     version = "*",
@@ -8,11 +17,11 @@ return {
     },
     keys = {
       {
-        "<leader>fu",
+        "<leader>fo",
         function()
           require("telescope").extensions.bookmarks.bookmarks()
         end,
-        desc = "Open Select Bookmark",
+        desc = "Open Selected Bookmark",
       },
     },
     config = function(_, opts)

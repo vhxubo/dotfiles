@@ -7,4 +7,3 @@ local opts = { noremap = true, silent = true }
 
 map("n", "<leader>yc", ':let @+=fnamemodify(expand("%:f"), ":~:.") . ":" . line(".")<CR>', opts)
 map({ "x", "n" }, "<C-i>", "<cmd>w<cr><esc>", opts)
-map("n", "<leader>o", ":OpenBrowserSmartSearch", opts)
