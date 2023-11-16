@@ -31,6 +31,7 @@ zinit light sunlei/zsh-ssh
 zinit light ael-code/zsh-colored-man-pages
 zinit light MichaelAquilina/zsh-you-should-use
 zinit light ptavares/zsh-exa
+zinit light Aloxaf/fzf-tab
 
 
 HISTFILE=~/.zsh_history
