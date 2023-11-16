@@ -1,4 +1,5 @@
 return {
+  { "tyru/open-browser.vim" },
   {
     "dhruvmanila/browser-bookmarks.nvim",
     version = "*",
