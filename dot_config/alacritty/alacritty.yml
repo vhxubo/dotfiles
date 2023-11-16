@@ -1,22 +1,22 @@
 live_config_reload: true
 font:
   normal:
-    family: InconsolataNerdFontMono
+    family: HackNerdFontMono
     style: Regular
 
   bold:
-    family: InconsolataNerdFontMono
+    family: HackNerdFontMono
     style: Bold
 
   italic:
-    family: InconsolataNerdFontMono
+    family: HackNerdFontMono
     style: Italic
 
   bold_italic:
-    family: InconsolataNerdFontMono
+    family: HackNerdFontMono
     style: Bold Italic
 
-  size: 22
+  size: 20
 
 cursor:
   style:
