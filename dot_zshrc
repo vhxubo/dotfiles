@@ -59,6 +59,7 @@ alias xr="xrandr --output HDMI-1 --auto --primary --left-of eDP-1"
 alias lock="betterlockscreen -l dim"
 
 export EDITOR="nvim"
+export TERM="xterm-256color"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
