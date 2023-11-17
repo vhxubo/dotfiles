@@ -2,6 +2,7 @@ return {
   { "h-hg/fcitx.nvim" },
   { "wakatime/vim-wakatime" },
   { "mg979/vim-visual-multi" },
+  { "christoomey/vim-tmux-navigator", event = "BufReadPre" },
   { "johmsalas/text-case.nvim", config = true },
   {
     "abecodes/tabout.nvim",
