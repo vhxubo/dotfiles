@@ -22,7 +22,7 @@ return {
       require("telescope").load_extension("harpoon")
       vim.keymap.set("n", "<leader>hl", "<cmd>Telescope harpoon marks<cr>", { desc = "Harpoon list" })
       vim.keymap.set("n", "<leader>ha", function()
-        require("harpoon.ui").add_file()
+        require("harpoon.mark").add_file()
       end, { desc = "Harpoon add file" })
       vim.keymap.set("n", "<leader>hn", function()
         require("harpoon.ui").nav_next()
