@@ -5,7 +5,15 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-map("n", "<leader>yc", ':let @+=fnamemodify(expand("%:f"), ":~:.") . ":" . line(".")<CR>', opts)
+-- copy file path
+map(
+  "n",
+  "<leader>yc",
+  ':let @+=fnamemodify(expand("%:f"), ":~:.") . ":" . line(".")<CR>',
+  { silent = true, desc = "Copy Relative Path with Line Number" }
+)
+map("n", "<leader>yf", ':let @+=fnamemodify(expand("%:f"), ":f")<CR>', { silent = true, desc = "Copy Relative Path" })
+
 map({ "x", "n" }, "<C-i>", "<cmd>w<cr><esc>", opts)
 
 -- split all buffer
