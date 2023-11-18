@@ -7,3 +7,7 @@ local opts = { noremap = true, silent = true }
 
 map("n", "<leader>yc", ':let @+=fnamemodify(expand("%:f"), ":~:.") . ":" . line(".")<CR>', opts)
 map({ "x", "n" }, "<C-i>", "<cmd>w<cr><esc>", opts)
+
+-- split all buffer
+map({ "n", "i", "v" }, "<C-w>a", "<cmd>sba<cr>", opts)
+map({ "n", "i", "v" }, "<C-w>A", "<cmd>vert sba<cr>", opts)
