@@ -1,11 +1,21 @@
 return {
-  { "rebelot/kanagawa.nvim" },
   {
-    "LazyVim/LazyVim",
-    opts = {
-      -- colorscheme = "kanagawa-lotus",
-      colorscheme = "kanagawa",
-    },
+    "rebelot/kanagawa.nvim",
+    config = function()
+      -- vim.cmd.colorscheme("kanagawa")
+    end,
+  },
+  {
+    "sainnhe/gruvbox-material",
+    config = function()
+      vim.g.gruvbox_material_forground = "material"
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_ui_contrast = "high"
+      vim.g.gruvbox_material_float_style = "dim"
+      vim.g.gruvbox_material_statusline_style = "material"
+      vim.g.gruvbox_material_better_performance = 1
+      vim.cmd.colorscheme("gruvbox-material")
+    end,
   },
   {
 
