@@ -326,12 +326,12 @@ globalkeys = mytable.join(
 	end, { description = "view  previous nonempty", group = "tag" }),
 
 	-- Default client focus
-	awful.key({ altkey }, "j", function()
-		awful.client.focus.byidx(1)
-	end, { description = "focus next by index", group = "client" }),
-	awful.key({ altkey }, "k", function()
-		awful.client.focus.byidx(-1)
-	end, { description = "focus previous by index", group = "client" }),
+	-- awful.key({ altkey }, "j", function()
+	-- 	awful.client.focus.byidx(1)
+	-- end, { description = "focus next by index", group = "client" }),
+	-- awful.key({ altkey }, "k", function()
+	-- 	awful.client.focus.byidx(-1)
+	-- end, { description = "focus previous by index", group = "client" }),
 
 	-- By-direction client focus
 	awful.key({ modkey }, "j", function()
@@ -470,21 +470,21 @@ globalkeys = mytable.join(
 	end, { description = "dropdown application", group = "launcher" }),
 
 	-- Widgets popups
-	awful.key({ altkey }, "c", function()
-		if beautiful.cal then
-			beautiful.cal.show(7)
-		end
-	end, { description = "show calendar", group = "widgets" }),
-	awful.key({ altkey }, "h", function()
-		if beautiful.fs then
-			beautiful.fs.show(7)
-		end
-	end, { description = "show filesystem", group = "widgets" }),
-	awful.key({ altkey }, "w", function()
-		if beautiful.weather then
-			beautiful.weather.show(7)
-		end
-	end, { description = "show weather", group = "widgets" }),
+	-- awful.key({ altkey }, "c", function()
+	-- 	if beautiful.cal then
+	-- 		beautiful.cal.show(7)
+	-- 	end
+	-- end, { description = "show calendar", group = "widgets" }),
+	-- awful.key({ altkey }, "h", function()
+	-- 	if beautiful.fs then
+	-- 		beautiful.fs.show(7)
+	-- 	end
+	-- end, { description = "show filesystem", group = "widgets" }),
+	-- awful.key({ altkey }, "w", function()
+	-- 	if beautiful.weather then
+	-- 		beautiful.weather.show(7)
+	-- 	end
+	-- end, { description = "show weather", group = "widgets" }),
 
 	-- Screen brightness
 	awful.key({}, "XF86MonBrightnessUp", function()
