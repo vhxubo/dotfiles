@@ -17,16 +17,33 @@ return {
       vim.cmd.colorscheme("gruvbox-material")
     end,
   },
+  -- scroolbar
   {
-
     "lewis6991/satellite.nvim",
     config = true,
   },
+  -- reduce notify timeout
   {
-    "3rd/image.nvim",
-    config = function()
-      require("image").setup({
-        backend = "ueberzug",
+    "rcarriga/nvim-notify",
+    opts = {
+      timeout = 1000,
+    },
+  },
+  -- filter some notify, and some msg_show split to view
+  {
+    "folke/noice.nvim",
+    opts = function(_, opts)
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      })
+      -- always route any messages with more than 20 lines to the split view
+      table.insert(opts.routes, {
+        view = "split",
+        filter = { event = "msg_show", min_height = 20 },
       })
     end,
   },

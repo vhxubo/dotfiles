@@ -1,12 +1,6 @@
 return {
   {
     "telescope.nvim",
-    config = function()
-      require("telescope").setup({ defaults = { file_ignore_patterns = { "public" } } })
-    end,
-  },
-  {
-    "telescope.nvim",
     dependencies = {
       {
         "nvim-telescope/telescope-live-grep-args.nvim",
@@ -26,24 +20,26 @@ return {
   {
     "telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-file-browser.nvim",
-    },
-    keys = {
       {
-        "<leader>sf",
-        function()
-          local telescope = require("telescope")
+        "nvim-telescope/telescope-file-browser.nvim",
+        keys = {
+          {
+            "<leader>sf",
+            function()
+              local telescope = require("telescope")
 
-          local function telescope_buffer_dir()
-            return vim.fn.expand("%:p:h")
-          end
+              local function telescope_buffer_dir()
+                return vim.fn.expand("%:p:h")
+              end
 
-          telescope.extensions.file_browser.file_browser({
-            path = "%:p:h",
-            cwd = telescope_buffer_dir(),
-          })
-        end,
-        desc = "Open File Browser with the path of the current buffer",
+              telescope.extensions.file_browser.file_browser({
+                path = "%:p:h",
+                cwd = telescope_buffer_dir(),
+              })
+            end,
+            desc = "Open File Browser with the path of the current buffer",
+          },
+        },
       },
     },
     init = function()
@@ -73,6 +69,7 @@ return {
         layout_strategy = "horizontal",
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
+        file_ignore_patterns = { "public" },
         winblend = 0,
         mappings = {
           n = {},
@@ -108,7 +105,6 @@ return {
         },
       }
       telescope.setup(opts)
-      require("telescope").load_extension("fzf")
       require("telescope").load_extension("file_browser")
     end,
   },

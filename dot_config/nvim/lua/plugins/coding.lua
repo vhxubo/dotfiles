@@ -1,4 +1,6 @@
 return {
+  { "mg979/vim-visual-multi" },
+  { "johmsalas/text-case.nvim", config = true },
   {
     "rareitems/printer.nvim",
     config = function()
@@ -12,6 +14,7 @@ return {
       })
     end,
   },
+
   -- Create annotations with one keybind, and jump your cursor in the inserted annotation
   {
     "danymat/neogen",
