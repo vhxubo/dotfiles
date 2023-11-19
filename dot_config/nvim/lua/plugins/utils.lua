@@ -1,6 +1,16 @@
 return {
   { "h-hg/fcitx.nvim" },
   { "wakatime/vim-wakatime" },
+  {
+    "andymass/vim-matchup",
+    config = function(_, opts)
+      opts.matchup = {
+        enable = true,
+        enable_quotes = true,
+      }
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
   { "mg979/vim-visual-multi" },
   { "christoomey/vim-tmux-navigator", event = "BufReadPre" },
   { "johmsalas/text-case.nvim", config = true },
