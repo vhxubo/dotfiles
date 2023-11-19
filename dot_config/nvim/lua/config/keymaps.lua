@@ -14,8 +14,6 @@ map(
 )
 map("n", "<leader>yf", ':let @+=fnamemodify(expand("%:f"), ":f")<CR>', { silent = true, desc = "Copy Relative Path" })
 
-map({ "x", "n" }, "<C-i>", "<cmd>w<cr><esc>", opts)
-
 -- split all buffer
 map({ "n", "i", "v" }, "<C-w>a", "<cmd>sba<cr>", opts)
 map({ "n", "i", "v" }, "<C-w>A", "<cmd>vert sba<cr>", opts)
