@@ -87,6 +87,9 @@ return {
       opts.extensions = {
         file_browser = {
           theme = "dropdown",
+          layout_config = {
+            height = 25,
+          },
           -- disables netrw and use telescope-file-browser in its place
           hijack_netrw = true,
           mappings = {

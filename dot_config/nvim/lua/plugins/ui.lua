@@ -17,11 +17,6 @@ return {
       vim.cmd.colorscheme("gruvbox-material")
     end,
   },
-  -- scroolbar
-  {
-    "lewis6991/satellite.nvim",
-    config = true,
-  },
   -- reduce notify timeout
   {
     "rcarriga/nvim-notify",
@@ -37,6 +32,13 @@ return {
         filter = {
           event = "notify",
           find = "No information available",
+        },
+        opts = { skip = true },
+      })
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "method textDocument/signatureHelp is not supported by any of the servers registered for the current buffer",
         },
         opts = { skip = true },
       })
