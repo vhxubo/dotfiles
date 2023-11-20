@@ -1,0 +1,21 @@
+{
+  "name": "vhxubo's snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "javascript",
+          "typescript",
+          "vue"
+        ],
+        "path": "./src/javascript.json"
+      },
+      {
+        "language": [
+          "vue"
+        ],
+        "path": "./src/vue.json"
+      }
+    ]
+  }
+}
