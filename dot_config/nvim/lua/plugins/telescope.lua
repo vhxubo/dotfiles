@@ -24,7 +24,7 @@ return {
         "nvim-telescope/telescope-file-browser.nvim",
         keys = {
           {
-            "<leader>sf",
+            "<leader>;",
             function()
               local telescope = require("telescope")
 

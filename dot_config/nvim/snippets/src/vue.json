@@ -45,5 +45,10 @@
     "prefix": "chandle",
     "body": ["@click=\"handle${1:Click}\" "],
     "description": "@click handle"
+  },
+  "async onMounted": {
+    "prefix": "onmounteda",
+    "body": ["onMounted(async () => {", "$0\n})"],
+    "description": "async onMounted"
   }
 }
