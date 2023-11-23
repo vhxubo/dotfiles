@@ -32,3 +32,5 @@ vim.keymap.set({ "n", "i", "v" }, "<C-w>A", "<cmd>vert sba<cr>", opts)
 -- replace selected but save the clipboard
 vim.keymap.set("x", "<leader>P", [["_dP]], { desc = "Replace selected but save the clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delecte to blck hole" })
+
+vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })

@@ -1,19 +1,31 @@
 return {
   {
-    "tyru/open-browser.vim",
-    keys = {
-      {
+    "itchyny/vim-external",
+    config = function()
+      vim.keymap.set("n", "<leader>o", function()
+        local text = vim.fn.input("Search: ")
+        vim.fn["external#browser"](text)
+      end, { desc = "Open browser with user typed text" })
+      vim.keymap.set(
+        "x",
         "<leader>o",
-        ":OpenBrowserSmartSearch ",
-        desc = "Open Browser Smart Search",
-      },
-    },
+        ":call external#browser(external#get_text('v'))<CR>",
+        { desc = "Open browser with selection" }
+      )
+      vim.keymap.set("x", "<leader>O", function()
+        -- FIXME: selection 是上一次的
+        local selection = vim.fn["external#get_text"]("v")
+        print([[[.config/nvim/lua/plugins/browser.lua:17] selection  = ]] .. selection)
+        local text = vim.fn.input("Search: ", selection)
+        vim.fn["external#browser"](text)
+      end, { desc = "Search" })
+    end,
   },
   {
     "dhruvmanila/browser-bookmarks.nvim",
     version = "*",
     dependencies = {
-      "tyru/open-browser.vim",
+      "itchyny/vim-external",
     },
     keys = {
       {
@@ -29,7 +41,7 @@ return {
       opts.extensions = {
         bookmarks = {
           selected_browser = "chrome",
-          url_open_plugin = "open_browser",
+          url_open_plugin = "vim_external",
         },
       }
       telescope.setup(opts)

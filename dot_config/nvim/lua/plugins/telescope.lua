@@ -73,6 +73,9 @@ return {
         winblend = 0,
         mappings = {
           n = {},
+          i = {
+            ["<C-CR>"] = actions.select_tab,
+          },
         },
       })
       opts.pickers = {
@@ -93,9 +96,6 @@ return {
           -- disables netrw and use telescope-file-browser in its place
           hijack_netrw = true,
           mappings = {
-            ["i"] = {
-              ["<Tab>"] = actions.select_tab,
-            },
             ["n"] = {
               ["N"] = fb_actions.create,
               ["h"] = fb_actions.goto_parent_dir,
