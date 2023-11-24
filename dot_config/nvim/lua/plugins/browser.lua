@@ -13,9 +13,15 @@ return {
         { desc = "Open browser with selection" }
       )
       vim.keymap.set("x", "<leader>O", function()
-        -- FIXME: selection 是上一次的
-        local selection = vim.fn["external#get_text"]("v")
-        print([[[.config/nvim/lua/plugins/browser.lua:17] selection  = ]] .. selection)
+        -- https://github.com/neovim/neovim/blob/master/runtime/lua/vim/_defaults.lua#L73-L79
+        local function get_visual_selection()
+          local save_a = vim.fn.getreginfo("a")
+          vim.cmd([[norm! "ay]])
+          local selection = vim.fn.getreg("a", 1)
+          vim.fn.setreg("a", save_a)
+          return selection
+        end
+        local selection = get_visual_selection()
         local text = vim.fn.input("Search: ", selection)
         vim.fn["external#browser"](text)
       end, { desc = "Search" })

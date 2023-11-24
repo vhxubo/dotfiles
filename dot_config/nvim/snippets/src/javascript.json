@@ -1,20 +1,24 @@
 {
-  "Simple Deep Clone": {
+  "simple deep clone": {
     "prefix": "jps",
     "body": ["JSON.parse(JSON.stringify(${1}))", "${0}"],
     "description": "JSON.parse(JSON.stringify())"
   },
-  "Log here": {
+  "log here": {
     "prefix": "clh",
     "body": ["console.log('here')", "$0"]
   },
-  "Function": {
+  "function": {
     "prefix": "func",
     "body": ["function ${1:name}(${2:params}) {", "$0\n}"]
   },
-  "Async function": {
+  "async function": {
     "prefix": "funca",
     "body": ["async function ${1:name}(${2:params}) {", "$0\n}"]
+  },
+  "export function": {
+    "prefix": "funce",
+    "body": ["export function ${1:name}(${2:params}) {", "$0\n}"]
   },
   "async alias": { "prefix": "ac", "body": ["async $0"] },
   "async another alias": { "prefix": "asy", "body": ["async $0"] },
