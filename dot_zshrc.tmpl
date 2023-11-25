@@ -50,6 +50,11 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
+{{- if eq .chezmoi.osRelease.id "ubuntu" }}
+export PATH="/home/vhxubo/.local/share/fnm:$PATH"
+export PATH="/snap/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{- end}}
 
 alias pn="pnpm"
 alias pd="pnpm dev"
@@ -76,12 +81,6 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(thefuck --alias)"
-
-{{- if eq .chezmoi.osRelease.id "ubuntu" }}
-export PATH="/home/vhxubo/.local/share/fnm:$PATH"
-export PATH="/snap/bin:$PATH"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-{{- end}}
 
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
