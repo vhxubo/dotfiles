@@ -66,6 +66,8 @@ alias autoremove="sudo pacman -Qtdq | sudo pacman -Rns -"
 alias xr="xrandr --output HDMI-1 --auto --primary --left-of eDP-1"
 alias lock="slock"
 alias g="git"
+alias genSSHKey='ssh-keygen -t ed25519 -C "{{ .email }}"'
+alias getSSHKey="cat ~/.ssh/id_ed25519.pub"
 
 export EDITOR="nvim"
 export TERM="xterm-256color"
