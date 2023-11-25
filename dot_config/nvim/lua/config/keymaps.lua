@@ -9,20 +9,34 @@ vim.keymap.set(
   "n",
   "<leader>yl",
   ':let @+=fnamemodify(expand("%:f"), ":~:.") . ":" . line(".")<CR>',
-  { silent = true, desc = "Copy Relative Path with Line Number" }
+  { silent = true, desc = "Copy relative path with line number" }
 )
 vim.keymap.set(
   "n",
   "<leader>yf",
   ':let @+=fnamemodify(expand("%:f"), ":f")<CR>',
-  { silent = true, desc = "Copy Relative Path" }
+  { silent = true, desc = "Copy relative path" }
 )
 vim.keymap.set(
   "n",
   "<leader>yr",
   ':let @+=fnamemodify(expand("%:f"), ":r:s?src?@?")<CR>',
-  { silent = true, desc = "Copy Relative Path For Code" }
+  { silent = true, desc = "Copy relative path for code" }
 )
+vim.keymap.set("x", "<leader>yi", function()
+  vim.cmd([[norm! "+y]])
+  local selection = vim.fn.getreg("+")
+  vim.fn.setreg("i", selection)
+  local path = vim.fn.fnamemodify(vim.fn.expand("%:f"), ":r:s?src?@?")
+  local result = "import { " .. selection .. " } from '" .. path .. "'"
+  vim.fn.setreg("+", result)
+end, { silent = true, desc = "Copy relative path and import selection" })
+vim.keymap.set("n", "<leader>yi", function()
+  local filename = vim.fn.fnamemodify(vim.fn.expand("%:f"), ":t:r")
+  local path = vim.fn.fnamemodify(vim.fn.expand("%:f"), ":r:s?src?@?")
+  local result = "import " .. filename .. " from '" .. path .. "'"
+  vim.fn.setreg("+", result)
+end, { silent = true, desc = "Copy relative path with import" })
 
 -- split all buffer
 vim.keymap.set({ "n", "i", "v" }, "<C-w>a", "<cmd>sba<cr>", opts)
