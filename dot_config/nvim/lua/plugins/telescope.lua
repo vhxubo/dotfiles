@@ -5,6 +5,20 @@ return {
       {
         "nvim-telescope/telescope-live-grep-args.nvim",
         config = function()
+          local telescope = require("telescope")
+          local lga_actions = require("telescope-live-grep-args.actions")
+          telescope.setup({
+            extensions = {
+              live_grep_args = {
+                mappings = {
+                  i = {
+                    ["<C-k>"] = lga_actions.quote_prompt({ postfix = " --fixed-strings" }),
+                    ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                  },
+                },
+              },
+            },
+          })
           require("telescope").load_extension("live_grep_args")
         end,
         keys = {
@@ -109,29 +123,6 @@ return {
       }
       telescope.setup(opts)
       require("telescope").load_extension("file_browser")
-    end,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "debugloop/telescope-undo.nvim",
-    },
-    config = function()
-      require("telescope").setup({
-        extensions = {
-          undo = {
-            theme = "dropdown",
-            side_by_side = true,
-            layout_strategy = "vertical",
-            layout_config = {
-              preview_height = 0.8,
-            },
-          },
-        },
-      })
-      require("telescope").load_extension("undo")
-      vim.keymap.set("n", "<leader>su", "<cmd>Telescope undo<cr>")
     end,
   },
 }
