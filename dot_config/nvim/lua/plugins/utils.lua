@@ -21,7 +21,22 @@ return {
       },
     },
   },
-  { "echasnovski/mini.splitjoin", config = true },
+  {
+    "Wansmer/treesj",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    keys = {
+      {
+        "gS",
+        ':lua require("treesj").toggle()<cr>',
+        desc = "toggle node under cursor",
+      },
+    },
+    opts = {
+      use_default_keymaps = false,
+    },
+  },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = {
