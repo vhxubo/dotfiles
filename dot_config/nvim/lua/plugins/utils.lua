@@ -12,6 +12,15 @@ return {
     },
   },
   { "ThePrimeagen/vim-be-good" },
+  {
+    "echasnovski/mini.align",
+    opts = {
+      mappings = {
+        start = "gn",
+        start_with_preview = "gN",
+      },
+    },
+  },
   { "echasnovski/mini.splitjoin", config = true },
   {
     "kevinhwang91/nvim-ufo",
@@ -21,7 +30,7 @@ return {
     },
     config = function()
       require("ufo").setup({
-        provider_selector = function(bufnr, filetype, buftype)
+        provider_selector = function()
           return { "treesitter", "indent" }
         end,
       })
