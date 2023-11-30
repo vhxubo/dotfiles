@@ -72,9 +72,6 @@ return {
     priority = 1200,
     config = function()
       require("incline").setup({
-        hide = {
-          cursorline = true,
-        },
         render = function(props)
           local bufname = vim.api.nvim_buf_get_name(props.buf)
           local filename = vim.fn.fnamemodify(bufname, ":p:h:t") .. "/" .. vim.fn.fnamemodify(bufname, ":t")
@@ -85,6 +82,12 @@ return {
           local icon, color = require("nvim-web-devicons").get_icon_color(filename)
           return { { icon, guifg = color }, { " " }, { filename } }
         end,
+        window = {
+          margin = {
+            horizontal = 0,
+            vertical = 0,
+          },
+        },
       })
     end,
   },
@@ -127,6 +130,18 @@ return {
 
       logo = string.rep("\n", 6) .. logo .. "\n\n"
       opts.config.header = vim.split(logo, "\n")
+    end,
+  },
+  {
+    "nvim-focus/focus.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("focus").setup({
+        ui = {
+          cursorline = false,
+        },
+        excluded_filetypes = { "fugitiveblame" },
+      })
     end,
   },
 }
