@@ -121,4 +121,11 @@ return {
       vim.keymap.set("x", "<leader>tr", pantran.motion_translate, opts)
     end,
   },
+  {
+    "mizlan/iswap.nvim",
+    config = function()
+      require("iswap").setup()
+      vim.keymap.set({ "n", "x" }, "<Leader>i", "<cmd>ISwapNode<cr>", { noremap = true })
+    end,
+  },
 }
