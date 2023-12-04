@@ -87,6 +87,9 @@ return {
             horizontal = 0,
             vertical = 0,
           },
+          placement = {
+            horizontal = "center",
+          },
         },
       })
     end,
