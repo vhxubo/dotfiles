@@ -17,15 +17,4 @@ return {
       require("luasnip.loaders.from_vscode").load({ paths = "./snippets" })
     end,
   },
-  {
-    "folke/noice.nvim",
-    opts = {
-      cmdline = {
-        enabled = false,
-      },
-      message = {
-        enabled = false,
-      },
-    },
-  },
 }
