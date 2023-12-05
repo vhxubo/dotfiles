@@ -53,8 +53,40 @@ local get_setup_node = function()
   vim.api.nvim_buf_set_lines(buf, s_row + start_row - 1, s_row + end_row - 1, false, { "return {" .. variables .. "}" })
 end
 
+local get_setup_node_list = function()
+  local buf, _, _, _ = unpack(vim.fn.getpos("'<"))
+  local _, e_row, _, _ = unpack(vim.fn.getpos("'>"))
+  local selection = get_visual_selection()
+  local language_tree = vim.treesitter.get_string_parser(selection, "javascript")
+  local syntax_tree = language_tree:parse()
+  local root = syntax_tree[1]:root()
+  local list = {}
+  for child, _ in root:iter_children() do
+    if child:type() == "lexical_declaration" then
+      for _, variable in ipairs(child:named_children()) do
+        if variable:type() == "variable_declarator" then
+          for _, name in ipairs(variable:named_children()) do
+            if name:type() == "identifier" then
+              table.insert(list, vim.treesitter.get_node_text(name, selection))
+            end
+          end
+        end
+      end
+    end
+    if child:type() == "function_declaration" then
+      for _, name in ipairs(child:named_children()) do
+        if name:type() == "identifier" then
+          table.insert(list, vim.treesitter.get_node_text(name, selection))
+        end
+      end
+    end
+  end
+  local variables = table.concat(list, ", ")
+  vim.api.nvim_buf_set_lines(buf, e_row, e_row, false, { "return {" .. variables .. "}" })
+end
 M.setup = function()
   vim.keymap.set({ "n", "v" }, "<leader>vs", get_setup_node)
+  vim.keymap.set({ "n", "v" }, "<leader>vl", get_setup_node_list)
 end
 
 return M
