@@ -9,3 +9,6 @@ gui:
 git:
   log:
     showGraph: always
+os:
+  edit: nvim --server /tmp/nvim.pipe --remote-tab "$(pwd)/{{filename}}"
+  editInTerminal: false
