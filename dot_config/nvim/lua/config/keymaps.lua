@@ -47,5 +47,13 @@ vim.keymap.set({ "n", "i", "v" }, "<C-w>A", "<cmd>vert sba<cr>", opts)
 -- replace selected but save the clipboard
 vim.keymap.set("x", "<leader>P", [["_dP]], { desc = "Replace selected but save the clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delecte to blck hole" })
+-- https://vim.fandom.com/wiki/Power_of_g
+-- the best map for FrontEnd developer
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>D",
+  [[:g/console.log/exe 'normal! "_dd'<cr>]],
+  { desc = "Delecte file console.log" }
+)
 
 vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })
