@@ -113,11 +113,21 @@ return {
       pantran.setup({
         default_engine = "google",
       })
-      local opts = { noremap = true, silent = true, expr = true }
-      vim.keymap.set({ "n", "x" }, "<leader>tr", pantran.motion_translate, opts)
-      vim.keymap.set("n", "<leader>tR", function()
-        return pantran.motion_translate() .. "_"
-      end, opts)
+      vim.keymap.set({ "n", "x" }, "<leader>tt", function()
+        vim.cmd("Pantran")
+        vim.cmd("startinsert")
+      end, { desc = "Translate typing to English" })
+      vim.keymap.set({ "n", "x" }, "<leader>tj", function()
+        return pantran.motion_translate({
+          target = "zh-CN",
+        })
+      end, { noremap = true, silent = true, expr = true, desc = "Translate to Chinese" })
+      vim.keymap.set(
+        { "n", "x" },
+        "<leader>tr",
+        pantran.motion_translate,
+        { noremap = true, silent = true, expr = true, desc = "Translate to English" }
+      )
     end,
   },
   {
@@ -126,5 +136,21 @@ return {
       require("iswap").setup()
       vim.keymap.set({ "n", "x" }, "<Leader>i", "<cmd>ISwapNode<cr>", { noremap = true })
     end,
+  },
+  {
+    "Wansmer/treesj",
+    keys = {
+      { "J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
+    },
+    opts = { use_default_keymaps = false, max_join_length = 150 },
+  },
+  {
+    "echasnovski/mini.align",
+    opts = {
+      mappings = {
+        start = "gn",
+        start_with_preview = "gN",
+      },
+    },
   },
 }
