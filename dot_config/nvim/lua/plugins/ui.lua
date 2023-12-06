@@ -140,6 +140,7 @@ return {
     config = function()
       require("focus").setup({
         ui = {
+          signcolumn = false,
           cursorline = false,
         },
       })
