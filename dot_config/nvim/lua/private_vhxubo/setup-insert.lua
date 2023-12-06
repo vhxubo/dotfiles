@@ -54,8 +54,9 @@ local get_setup_node = function()
 end
 
 local get_setup_node_list = function()
-  local buf, _, _, _ = unpack(vim.fn.getpos("'<"))
-  local _, e_row, _, _ = unpack(vim.fn.getpos("'>"))
+  local buf, _, _, _ = unpack(vim.fn.getpos("v"))
+  local _, e_row, _, _ = unpack(vim.fn.getpos("."))
+  local cursor_pos = vim.fn.getpos(".")
   local selection = get_visual_selection()
   local language_tree = vim.treesitter.get_string_parser(selection, "javascript")
   local syntax_tree = language_tree:parse()
@@ -68,6 +69,20 @@ local get_setup_node_list = function()
           for _, name in ipairs(variable:named_children()) do
             if name:type() == "identifier" then
               table.insert(list, vim.treesitter.get_node_text(name, selection))
+            end
+            if name:type() == "object_pattern" then
+              for _, property in ipairs(name:named_children()) do
+                if property:type() == "shorthand_property_identifier_pattern" then
+                  table.insert(list, vim.treesitter.get_node_text(property, selection))
+                end
+                if property:type() == "pair_pattern" then
+                  for _, ident in ipairs(property:named_children()) do
+                    if ident:type() == "identifier" then
+                      table.insert(list, vim.treesitter.get_node_text(ident, selection))
+                    end
+                  end
+                end
+              end
             end
           end
         end
@@ -83,6 +98,7 @@ local get_setup_node_list = function()
   end
   local variables = table.concat(list, ", ")
   vim.api.nvim_buf_set_lines(buf, e_row, e_row, false, { "return {" .. variables .. "}" })
+  vim.fn.setpos(".", cursor_pos)
 end
 M.setup = function()
   vim.keymap.set({ "n", "v" }, "<leader>vs", get_setup_node)
