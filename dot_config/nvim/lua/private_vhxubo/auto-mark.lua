@@ -4,9 +4,13 @@ local function set_vue_marks()
   vim.api.nvim_buf_del_mark(bufrn, "s")
   vim.api.nvim_buf_del_mark(bufrn, "r")
   local i_row, i_col = unpack(vim.fn.searchpos("^import", "nbce"))
-  -- print(i_row, i_col)
   if i_row ~= 0 or i_col ~= 0 then
     vim.api.nvim_buf_set_mark(bufrn, "i", i_row, i_col, {})
+  else
+    local ip_row, ip_col = unpack(vim.fn.searchpos("<script>", "nbce"))
+    if ip_row ~= 0 or ip_col ~= 0 then
+      vim.api.nvim_buf_set_mark(bufrn, "i", ip_row, 0, {})
+    end
   end
 
   local s_row, s_col = unpack(vim.fn.searchpos("setup(", "nbce"))

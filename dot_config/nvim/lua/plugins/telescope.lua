@@ -125,4 +125,31 @@ return {
       require("telescope").load_extension("file_browser")
     end,
   },
+  {
+    "piersolenski/telescope-import.nvim",
+    keys = {
+      {
+        "<leader>si",
+        ":Telescope import<cr>",
+        desc = "Search imports",
+      },
+    },
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          import = {
+            insert_at_top = false,
+            custom_languages = {
+              {
+                regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
+                filetypes = { "vue" },
+                extensions = { "js", "ts" },
+              },
+            },
+          },
+        },
+      })
+      require("telescope").load_extension("import")
+    end,
+  },
 }
