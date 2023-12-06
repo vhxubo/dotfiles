@@ -5,6 +5,17 @@
 require("vhxubo.setup-insert").setup()
 local opts = { noremap = true, silent = true }
 
+-- https://github.com/tpope/vim-unimpaired#faq
+-- make type `[` and `]` easier
+vim.cmd([[
+nmap < [
+nmap > ]
+omap < [
+omap > ]
+xmap < [
+xmap > ]
+]])
+
 -- copy file path
 vim.keymap.set(
   "n",
