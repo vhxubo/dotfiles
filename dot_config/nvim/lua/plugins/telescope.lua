@@ -135,10 +135,11 @@ return {
       },
     },
     config = function()
+      local actions = require("telescope.actions")
+      local action_state = require("telescope.actions.state")
       require("telescope").setup({
         extensions = {
           import = {
-            insert_at_top = false,
             custom_languages = {
               {
                 regex = [[^(?:import(?:[\"'\s]*([\w*{}\n, ]+)from\s*)?[\"'\s](.*?)[\"'\s].*)]],
@@ -146,6 +147,21 @@ return {
                 extensions = { "js", "ts" },
               },
             },
+            attach_mappings = function(prompt_bufnr, _)
+              actions.select_default:replace(function()
+                actions.close(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                local origin_position = vim.fn.getpos(".")
+                -- use with vhxubo/auto-mark.lua
+                local import_position = vim.fn.getpos("'i")
+                if import_position[2] ~= 0 then
+                  vim.fn.setpos(".", import_position)
+                end
+                vim.api.nvim_put({ selection.value }, "l", true, false)
+                vim.fn.setpos(".", origin_position)
+              end)
+              return true
+            end,
           },
         },
       })
