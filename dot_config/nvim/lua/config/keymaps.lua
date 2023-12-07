@@ -62,9 +62,15 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delecte to blck hol
 -- the best map for FrontEnd developer
 vim.keymap.set(
   { "n", "v" },
-  "<leader>D",
+  "<leader>Dl",
   [[:g/console.log/exe 'normal! "_dd'<cr>]],
-  { desc = "Delecte file console.log" }
+  { silent = true, desc = "Delecte file console.log" }
+)
+vim.keymap.set(
+  { "n", "v" },
+  "<leader>Df",
+  [[:call delete(expand('%')) | bdelete!<cr>]],
+  { silent = true, desc = "Delecte current file and buffer" }
 )
 
 vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })
