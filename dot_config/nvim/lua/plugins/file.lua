@@ -17,4 +17,5 @@ return {
     end,
   },
   { "is0n/fm-nvim", cmd = { "Lf" } },
+  { "tpope/vim-eunuch" },
 }
