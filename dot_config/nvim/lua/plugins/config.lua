@@ -17,4 +17,12 @@ return {
       require("luasnip.loaders.from_vscode").load({ paths = "./snippets" })
     end,
   },
+  {
+    "lukas-reineke/headlines.nvim",
+    enabled = false,
+  },
+  {
+    "catppuccin",
+    enabled = false,
+  },
 }
