@@ -43,4 +43,7 @@ require("lazy").setup({
       },
     },
   },
+  dev = {
+    path = "~/ghq/github.com/vhxubo",
+  },
 })

@@ -18,4 +18,23 @@ return {
   },
   { "is0n/fm-nvim", cmd = { "Lf" } },
   { "tpope/vim-eunuch" },
+  {
+    "vhxubo/file-matches.nvim",
+    dev = true,
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          file_matches = {
+            layout_strategy = "bottom_pane",
+            layout_config = {
+              prompt_position = "bottom",
+              height = 0.8,
+            },
+          },
+        },
+      })
+      require("telescope").load_extension("file_matches")
+      vim.keymap.set("n", "gm", ":Telescope file_matches<cr>")
+    end,
+  },
 }
