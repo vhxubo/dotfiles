@@ -1,10 +1,6 @@
 {
   "extras": [
-  {{- if eq .chezmoi.osRelease.id "arch" }}
     "lazyvim.plugins.extras.coding.codeium",
-  {{- end}}
-    "lazyvim.plugins.extras.coding.tabnine",
-    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.formatting.prettier",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
