@@ -42,14 +42,5 @@ return {
       )
     end,
   },
-  {
-    "eandrju/cellular-automaton.nvim",
-    keys = {
-      {
-        "<leader>fml",
-        "<cmd>CellularAutomaton make_it_rain<CR>",
-      },
-    },
-  },
   { "nvim-treesitter/playground" },
 }

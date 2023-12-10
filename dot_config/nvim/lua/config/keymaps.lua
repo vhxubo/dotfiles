@@ -3,7 +3,6 @@
 -- Add any additional keymaps here
 
 require("vhxubo.setup-insert").setup()
-local opts = { noremap = true, silent = true }
 
 -- copy file path
 vim.keymap.set(
@@ -39,10 +38,6 @@ vim.keymap.set("n", "<leader>yi", function()
   vim.fn.setreg("+", result)
 end, { silent = true, desc = "Copy relative path with import" })
 
--- split all buffer
-vim.keymap.set({ "n", "i", "v" }, "<C-w>a", "<cmd>sba<cr>", opts)
-vim.keymap.set({ "n", "i", "v" }, "<C-w>A", "<cmd>vert sba<cr>", opts)
-
 -- the best register map
 -- replace selected but save the clipboard
 vim.keymap.set("x", "<leader>P", [["_dP]], { desc = "Replace selected but save the clipboard" })
@@ -63,3 +58,10 @@ vim.keymap.set(
 )
 
 vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })
+
+vim.keymap.set("i", "jk", "<esc>")
+vim.keymap.set("i", "kj", "<esc>")
+vim.keymap.set("i", "jj", "<esc>")
+
+vim.keymap.set("n", "<leader>wo", "<C-W>o", { desc = "Delete all other windows" })
+vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close all other tabs" })

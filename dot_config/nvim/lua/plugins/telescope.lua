@@ -23,7 +23,7 @@ return {
         end,
         keys = {
           {
-            "<leader>sl",
+            "<leader>/",
             ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
             desc = "Live Grep Args",
           },
@@ -86,28 +86,17 @@ return {
         file_ignore_patterns = { "public" },
         winblend = 0,
         mappings = {
-          n = {},
           i = {
             ["<C-CR>"] = actions.select_tab,
           },
         },
       })
-      opts.pickers = {
-        diagnostics = {
-          theme = "ivy",
-          initial_mode = "normal",
-          layout_config = {
-            preview_cutoff = 9999,
-          },
-        },
-      }
       opts.extensions = {
         file_browser = {
           theme = "dropdown",
           layout_config = {
             height = 25,
           },
-          -- disables netrw and use telescope-file-browser in its place
           hijack_netrw = true,
           mappings = {
             ["n"] = {
@@ -166,6 +155,32 @@ return {
         },
       })
       require("telescope").load_extension("import")
+    end,
+  },
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    keys = {
+      {
+        "<leader>r",
+        "<Cmd>Telescope frecency<CR>",
+      },
+      {
+        "<leader>R",
+        "<Cmd>Telescope frecency workspace=CWD<CR>",
+      },
+    },
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          frecency = {
+            -- ignore_patterns = {},
+            workspaces = {
+              ["nvim"] = "/home/vhxubo/.config/nvim",
+            },
+          },
+        },
+      })
+      require("telescope").load_extension("frecency")
     end,
   },
 }
