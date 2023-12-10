@@ -56,23 +56,6 @@ return {
         },
       },
     },
-    init = function()
-      if vim.fn.argc(-1) == 1 then
-        local stat = vim.loop.fs_stat(vim.fn.argv(0))
-        if stat and stat.type == "directory" then
-          local telescope = require("telescope")
-
-          local function telescope_buffer_dir()
-            return vim.fn.expand("%:p:h")
-          end
-
-          telescope.extensions.file_browser.file_browser({
-            path = "%:p:h",
-            cwd = telescope_buffer_dir(),
-          })
-        end
-      end
-    end,
     config = function(_, opts)
       local telescope = require("telescope")
       local actions = require("telescope.actions")
