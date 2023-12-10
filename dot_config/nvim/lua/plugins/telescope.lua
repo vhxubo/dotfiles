@@ -35,9 +35,14 @@ return {
     "telescope.nvim",
     keys = {
       {
-        "<leader>fl",
+        "<leader>.",
         function()
-          require("telescope.builtin").find_files({ search_dirs = { vim.fn.expand("%:p:h") } })
+          local themes = require("telescope.themes")
+          require("telescope.builtin").find_files(themes.get_ivy({
+            cwd = vim.fn.expand("%:p:h"),
+            layout_config = { prompt_position = "bottom" },
+            initial_mode = "normal",
+          }))
         end,
         desc = "List files(cwd)",
       },
@@ -153,12 +158,12 @@ return {
     "nvim-telescope/telescope-frecency.nvim",
     keys = {
       {
-        "<leader>R",
+        "<leader>r",
         "<Cmd>Telescope frecency<CR>",
         desc = "Frequency files",
       },
       {
-        "<leader>r",
+        "<leader>'",
         "<Cmd>Telescope frecency workspace=CWD<CR>",
         desc = "Frequency files(cwd)",
       },
