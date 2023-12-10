@@ -70,7 +70,7 @@ local function run_once(cmd_arr)
 	end
 end
 
-run_once({ "unclutter -root", "fcitx5 -d" }) -- comma-separated entries
+run_once({ "unclutter -root", "fcitx5 -d", "redshift-gtk" }) -- comma-separated entries
 -- This function implements the XDG autostart specification
 --[[
 awful.spawn.with_shell(
