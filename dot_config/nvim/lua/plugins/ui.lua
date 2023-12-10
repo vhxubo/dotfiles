@@ -87,8 +87,12 @@ return {
             vertical = 0,
           },
           placement = {
-            horizontal = "center",
+            vertical = "bottom",
+            horizontal = "left",
           },
+        },
+        hide = {
+          focused_win = true,
         },
       })
     end,

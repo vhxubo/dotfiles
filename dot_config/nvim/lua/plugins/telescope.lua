@@ -33,6 +33,15 @@ return {
   },
   {
     "telescope.nvim",
+    keys = {
+      {
+        "<leader>fl",
+        function()
+          require("telescope.builtin").find_files({ search_dirs = { vim.fn.expand("%:p:h") } })
+        end,
+        desc = "List files(cwd)",
+      },
+    },
     dependencies = {
       {
         "nvim-telescope/telescope-file-browser.nvim",
@@ -51,7 +60,7 @@ return {
                 cwd = telescope_buffer_dir(),
               })
             end,
-            desc = "Open File Browser with the path of the current buffer",
+            desc = "Browser Files(cwd)",
           },
         },
       },
@@ -103,7 +112,7 @@ return {
       {
         "<leader>si",
         ":Telescope import<cr>",
-        desc = "Search imports",
+        desc = "Search and insert imports",
       },
     },
     config = function()
@@ -144,12 +153,14 @@ return {
     "nvim-telescope/telescope-frecency.nvim",
     keys = {
       {
-        "<leader>r",
+        "<leader>R",
         "<Cmd>Telescope frecency<CR>",
+        desc = "Frequency files",
       },
       {
-        "<leader>R",
+        "<leader>r",
         "<Cmd>Telescope frecency workspace=CWD<CR>",
+        desc = "Frequency files(cwd)",
       },
     },
     config = function()
