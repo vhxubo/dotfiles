@@ -20,3 +20,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.wrap = false
   end,
 })
+
+-- support gf for vue project
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "vue", "javascript" },
+  callback = function()
+    vim.cmd([[
+    setlocal isfname+=@-@
+    setlocal includeexpr=substitute(v:fname,'^@\/','src/','')
+    setlocal suffixesadd=.js,.vue,.scss,.css
+    ]])
+  end,
+})
