@@ -43,4 +43,27 @@ return {
     end,
   },
   { "nvim-treesitter/playground" },
+  {
+    "skywind3000/asyncrun.vim",
+    config = function()
+      vim.g.asyncrun_open = 6
+      vim.cmd([[
+        cnoreabbrev Ar AsyncRun
+        cnoreabbrev AR AsyncRun
+        cnoreabbrev As AsyncStop
+        cnoreabbrev AS AsyncStop
+      ]])
+    end,
+  },
+  {
+    "skywind3000/asynctasks.vim",
+    config = function()
+      vim.g.asynctasks_extra_config = { "~/.config/nvim/extra/tasks.ini" }
+      vim.g.asynctasks_term_pos = "tab"
+      vim.cmd([[
+        cnoreabbrev At AsyncTask
+        cnoreabbrev AT AsyncTask
+      ]])
+    end,
+  },
 }
