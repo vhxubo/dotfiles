@@ -61,6 +61,8 @@ vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })
 
 vim.keymap.set("i", "jk", "<esc>")
 vim.keymap.set("i", "jj", "<esc>")
+vim.keymap.set("i", "<C-k>", '<C-o>"_d$')
+vim.keymap.set("i", "<C-f>", '<C-o>"_dw')
 
 vim.keymap.set("n", "<leader>wo", "<C-W>o", { desc = "Delete all other windows" })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close all other tabs" })

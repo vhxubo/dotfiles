@@ -145,4 +145,5 @@ return {
       },
     },
   },
+  { "tpope/vim-rsi" },
 }

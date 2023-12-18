@@ -17,7 +17,11 @@ return {
     branch = "harpoon2",
     config = function()
       local harpoon = require("harpoon")
-      harpoon:setup()
+      harpoon:setup({
+        settings = {
+          save_on_toggle = true,
+        },
+      })
       require("telescope").load_extension("harpoon")
       vim.keymap.set("n", "<leader>sp", function()
         vim.cmd("Telescope harpoon marks")

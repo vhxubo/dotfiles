@@ -16,3 +16,5 @@ vim.opt.laststatus = 3
 vim.opt.splitkeep = "screen"
 
 vim.g.maplocalleader = ";"
+
+vim.opt.spelloptions = "camel"

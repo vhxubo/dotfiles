@@ -2,11 +2,12 @@ return {
   {
     "rebelot/kanagawa.nvim",
     config = function()
-      -- vim.cmd.colorscheme("kanagawa")
+      vim.cmd.colorscheme("kanagawa")
     end,
   },
   {
     "sainnhe/gruvbox-material",
+    enabled = false,
     config = function()
       vim.g.gruvbox_material_forground = "material"
       vim.g.gruvbox_material_background = "hard"
