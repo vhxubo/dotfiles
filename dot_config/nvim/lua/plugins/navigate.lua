@@ -47,4 +47,21 @@ return {
       end)
     end,
   },
+  {
+    "harrisoncramer/jump-tag",
+    config = function()
+      vim.keymap.set("n", "[l", function()
+        require("jump-tag").jumpPrevSibling()
+      end, { desc = "Jump to prev sibling tag" })
+      vim.keymap.set("n", "]l", function()
+        require("jump-tag").jumpNextSibling()
+      end, { desc = "Jump to next sibling tag" })
+      vim.keymap.set("n", "[L", function()
+        require("jump-tag").jumpParent()
+      end, { desc = "Jump to parent tag" })
+      vim.keymap.set("n", "]L", function()
+        require("jump-tag").jumpChild()
+      end, { desc = "Jump to child tag" })
+    end,
+  },
 }
