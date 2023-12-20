@@ -35,45 +35,21 @@ return {
     "telescope.nvim",
     keys = {
       {
-        "<leader>.",
+        "<leader>'",
         function()
           local themes = require("telescope.themes")
           require("telescope.builtin").find_files(themes.get_ivy({
             cwd = vim.fn.expand("%:p:h"),
-            layout_config = { prompt_position = "bottom" },
+            layout_config = { prompt_position = "bottom", height = 0.8 },
             initial_mode = "normal",
           }))
         end,
         desc = "List files(cwd)",
       },
     },
-    dependencies = {
-      {
-        "nvim-telescope/telescope-file-browser.nvim",
-        keys = {
-          {
-            "<leader>;",
-            function()
-              local telescope = require("telescope")
-
-              local function telescope_buffer_dir()
-                return vim.fn.expand("%:p:h")
-              end
-
-              telescope.extensions.file_browser.file_browser({
-                path = "%:p:h",
-                cwd = telescope_buffer_dir(),
-              })
-            end,
-            desc = "Browser Files(cwd)",
-          },
-        },
-      },
-    },
     config = function(_, opts)
       local telescope = require("telescope")
       local actions = require("telescope.actions")
-      local fb_actions = require("telescope").extensions.file_browser.actions
 
       opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
         wrap_results = true,
@@ -88,27 +64,7 @@ return {
           },
         },
       })
-      opts.extensions = {
-        file_browser = {
-          theme = "dropdown",
-          layout_config = {
-            height = 25,
-          },
-          hijack_netrw = true,
-          mappings = {
-            ["n"] = {
-              ["N"] = fb_actions.create,
-              ["h"] = fb_actions.goto_parent_dir,
-              ["l"] = actions.select_tab,
-              ["/"] = function()
-                vim.cmd("startinsert")
-              end,
-            },
-          },
-        },
-      }
       telescope.setup(opts)
-      require("telescope").load_extension("file_browser")
     end,
   },
   {
@@ -163,7 +119,7 @@ return {
         desc = "Frequency files",
       },
       {
-        "<leader>'",
+        "<leader>;",
         "<Cmd>Telescope frecency workspace=CWD<CR>",
         desc = "Frequency files(cwd)",
       },
@@ -172,7 +128,6 @@ return {
       require("telescope").setup({
         extensions = {
           frecency = {
-            -- ignore_patterns = {},
             workspaces = {
               ["nvim"] = "/home/vhxubo/.config/nvim",
             },

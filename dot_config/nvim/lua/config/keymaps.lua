@@ -59,7 +59,7 @@ vim.keymap.set(
 
 vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })
 
-vim.keymap.set("i", "jk", "<esc>")
+vim.keymap.set("i", "jk", "<cmd>w<cr><esc>", { desc = "Save file" })
 vim.keymap.set("i", "jj", "<esc>")
 vim.keymap.set("i", "<C-k>", '<C-o>"_d$')
 vim.keymap.set("i", "<C-f>", '<C-o>"_dw')
