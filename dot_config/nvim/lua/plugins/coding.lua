@@ -195,4 +195,12 @@ return {
     event = "InsertEnter",
     opts = { enable_check_bracket_line = false },
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  },
 }
