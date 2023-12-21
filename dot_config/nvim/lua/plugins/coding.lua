@@ -203,4 +203,9 @@ return {
       require("nvim-surround").setup({})
     end,
   },
+  {
+    "numToStr/Comment.nvim",
+    opts = {},
+    lazy = false,
+  },
 }
