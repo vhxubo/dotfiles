@@ -208,4 +208,9 @@ return {
     opts = {},
     lazy = false,
   },
+  {
+    "chrisgrieser/nvim-various-textobjs",
+    lazy = false,
+    opts = { useDefaultKeymaps = true },
+  },
 }

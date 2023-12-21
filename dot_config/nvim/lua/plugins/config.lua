@@ -19,6 +19,7 @@ return {
   },
   {
     "echasnovski/mini.ai",
+    enabled = false,
     opts = {
       custom_textobjects = {
         -- support HTML Attributes
