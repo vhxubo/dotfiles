@@ -22,6 +22,21 @@ return {
           save_on_toggle = true,
         },
       })
+      harpoon:extend({
+        UI_CREATE = function(cx)
+          vim.keymap.set("n", "<C-v>", function()
+            harpoon.ui:select_menu_item({ vsplit = true })
+          end, { buffer = cx.bufnr })
+
+          vim.keymap.set("n", "<C-x>", function()
+            harpoon.ui:select_menu_item({ split = true })
+          end, { buffer = cx.bufnr })
+
+          vim.keymap.set("n", "<C-CR>", function()
+            harpoon.ui:select_menu_item({ tabedit = true })
+          end, { buffer = cx.bufnr })
+        end,
+      })
       require("telescope").load_extension("harpoon")
       vim.keymap.set("n", "<leader>sp", function()
         vim.cmd("Telescope harpoon marks")
@@ -44,6 +59,14 @@ return {
       end)
       vim.keymap.set("n", "<C-m>", function()
         harpoon:list():select(4)
+
+        -- Toggle previous & next buffers stored within Harpoon list
+        vim.keymap.set("n", "<C-S-P>", function()
+          harpoon:list():prev()
+        end)
+        vim.keymap.set("n", "<C-S-N>", function()
+          harpoon:list():next()
+        end)
       end)
     end,
   },
