@@ -63,6 +63,7 @@ vim.keymap.set("i", "jk", "<cmd>w<cr><esc>", { desc = "Save file" })
 vim.keymap.set("i", "jj", "<esc>")
 vim.keymap.set("i", "<C-k>", '<C-o>"_d$')
 vim.keymap.set("i", "<C-f>", '<C-o>"_dw')
+vim.keymap.set("n", "<BS>", ":nohlsearch<cr>", { silent = true, desc = "No highlight search" })
 
 vim.keymap.set("n", "<leader>wo", "<C-W>o", { desc = "Delete all other windows" })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close all other tabs" })
