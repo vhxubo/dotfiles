@@ -4,11 +4,12 @@ gui:
       - reverse
     selectedRangeBgColor:
       - reverse
-  # showIcons: true
   language: "en"
 git:
   log:
     showGraph: always
 os:
-  edit: nvim --server /tmp/nvim.pipe --remote-tab "$(pwd)/{{filename}}"
-  editInTerminal: false
+  editPreset: "nvim-remote"
+disableStartupPopups: true
+notARepository: "quit" # one of: 'prompt' | 'create' | 'skip' | 'quit'
+promptToReturnFromSubprocess: false

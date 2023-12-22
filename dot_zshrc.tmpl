@@ -64,7 +64,7 @@ function config_proxy() {
 
 alias pn="pnpm"
 alias pd="pnpm dev"
-alias n="nvim . --listen /tmp/nvim.pipe"
+alias n="nvim ."
 alias lgit="lazygit"
 alias G="lazygit"
 alias t="tmux"
@@ -80,6 +80,7 @@ alias g="git"
 alias genSSHKey='ssh-keygen -t ed25519 -C "{{ .email }}"'
 alias getSSHKey="cat ~/.ssh/id_ed25519.pub"
 
+export VISUAL="nvim"
 export EDITOR="nvim"
 export TERM="xterm-256color"
 export ZK_NOTEBOOK_DIR="/home/vhxubo/notes"
