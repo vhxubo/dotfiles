@@ -46,6 +46,16 @@ return {
         end,
         desc = "List files(cwd)",
       },
+      {
+        "<C-t>",
+        function()
+          local themes = require("telescope.themes")
+          require("telescope.builtin").git_status(themes.get_ivy({
+            layout_config = { prompt_position = "bottom", height = 0.8 },
+          }))
+        end,
+        desc = "Git status",
+      },
     },
     config = function(_, opts)
       local telescope = require("telescope")

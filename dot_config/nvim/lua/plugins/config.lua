@@ -39,6 +39,17 @@ return {
         },
       },
     },
+    keys = {
+      { "S", false, mode = { "n", "x", "o" } },
+      {
+        "<CR>",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+    },
   },
   {
     "echasnovski/mini.pairs",

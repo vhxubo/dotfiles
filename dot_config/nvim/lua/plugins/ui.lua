@@ -149,7 +149,7 @@ return {
           cursorline = false,
         },
       })
-      local ignore_filetypes = { "neo-tree", "oil", "fugitiveblame", "DiffviewFiles" }
+      local ignore_filetypes = { "neo-tree", "oil", "fugitiveblame", "DiffviewFiles", "Outline" }
       local ignore_buftypes = { "nofile", "prompt", "popup" }
 
       local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })

@@ -42,7 +42,6 @@ return {
       )
     end,
   },
-  { "nvim-treesitter/playground" },
   {
     "skywind3000/asyncrun.vim",
     config = function()

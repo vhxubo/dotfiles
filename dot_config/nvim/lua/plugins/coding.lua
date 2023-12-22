@@ -137,6 +137,11 @@ return {
     opts = { use_default_keymaps = false, max_join_length = 150 },
   },
   {
+    "numToStr/Comment.nvim",
+    opts = {},
+    lazy = false,
+  },
+  {
     "echasnovski/mini.align",
     opts = {
       mappings = {
@@ -147,53 +152,9 @@ return {
   },
   { "tpope/vim-rsi" },
   {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      table.insert(opts.sources, {
-        name = "html-css",
-        option = {
-          max_count = 3,
-          enable_on = {
-            "html",
-            "vue",
-          },
-          file_extensions = { "css", "sass", "less" },
-          style_sheets = {
-            "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css",
-          },
-        },
-      })
-    end,
-  },
-  {
-    "Jezda1337/nvim-html-css",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-lua/plenary.nvim",
-    },
-    event = "VeryLazy",
-    config = function()
-      require("html-css"):setup()
-    end,
-  },
-  {
-    "axelvc/template-string.nvim",
-    event = "InsertEnter",
-    opts = {
-      filetypes = {
-        "html",
-        "typescript",
-        "javascript",
-        "typescriptreact",
-        "javascriptreact",
-        "vue",
-      },
-    },
-  },
-  {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = { enable_check_bracket_line = false },
+    opts = {},
   },
   {
     "kylechui/nvim-surround",
@@ -202,15 +163,5 @@ return {
     config = function()
       require("nvim-surround").setup({})
     end,
-  },
-  {
-    "numToStr/Comment.nvim",
-    opts = {},
-    lazy = false,
-  },
-  {
-    "chrisgrieser/nvim-various-textobjs",
-    lazy = false,
-    opts = { useDefaultKeymaps = true },
   },
 }

@@ -1,6 +1,7 @@
 return {
   {
     "renerocksai/telekasten.nvim",
+    event = "VeryLazy",
     config = function()
       require("telekasten").setup({
         home = vim.fn.expand("~/Nutstore Files/notes/0-zettelkasten"),
