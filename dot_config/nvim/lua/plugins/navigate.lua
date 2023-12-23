@@ -72,28 +72,28 @@ return {
     ft = { "vue", "html", "javascriptreact", "typescriptreact" },
     keys = {
       {
-        "[l",
+        "[v",
         function()
           require("jump-tag").jumpPrevSibling()
         end,
         { desc = "Jump to prev sibling tag" },
       },
       {
-        "]l",
+        "]v",
         function()
           require("jump-tag").jumpNextSibling()
         end,
         { desc = "Jump to next sibling tag" },
       },
       {
-        "[L",
+        "[V",
         function()
           require("jump-tag").jumpParent()
         end,
         { desc = "Jump to parent tag" },
       },
       {
-        "]L",
+        "]V",
         function()
           require("jump-tag").jumpChild()
         end,
@@ -108,7 +108,6 @@ return {
       dim = true, -- dim all other characters if set to true (recommended!)
     },
   },
-  { "gbprod/stay-in-place.nvim", config = true },
   { "nacro90/numb.nvim", config = true },
   {
     "chrisgrieser/nvim-spider",
