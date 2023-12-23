@@ -53,4 +53,24 @@ return {
     "echasnovski/mini.comment",
     enabled = false,
   },
+  {
+    "stevearc/aerial.nvim",
+    opts = {
+      layout = {
+        width = 30,
+      },
+      -- A list of all symbols to display. Set to false to display all symbols.
+      -- This can be a filetype map (see :help aerial-filetype-map)
+      -- To see all available values, see :help SymbolKind
+      filter_kind = {
+        "Class",
+        "Constructor",
+        "Method",
+        "Function",
+        "Object",
+        "Constant",
+        "Variable",
+      },
+    },
+  },
 }
