@@ -18,16 +18,6 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.ai",
-    enabled = false,
-    opts = {
-      custom_textobjects = {
-        -- support HTML Attributes
-        x = { '%s:?[%w%p]+=".-"' },
-      },
-    },
-  },
-  {
     "folke/flash.nvim",
     opts = {
       modes = {
