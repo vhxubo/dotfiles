@@ -38,11 +38,12 @@ return {
         end,
       })
       require("telescope").load_extension("harpoon")
-      vim.keymap.set("n", "<leader>sp", function()
-        vim.cmd("Telescope harpoon marks")
-        local esc = vim.api.nvim_replace_termcodes("<esc>", true, false, true)
-        vim.api.nvim_feedkeys(esc, "x", false)
-      end, { desc = "Harpoon list" })
+      vim.keymap.set("n", "<leader>hp", function()
+        harpoon:list():prev()
+      end)
+      vim.keymap.set("n", "<leader>hn", function()
+        harpoon:list():next()
+      end)
 
       vim.keymap.set("n", "<leader>a", function()
         harpoon:list():append()
@@ -57,16 +58,12 @@ return {
       vim.keymap.set("n", "<C-g>", function()
         harpoon:list():select(2)
       end)
+      -- doesn't work, need set in keymaps.lua
+      -- vim.keymap.set("n", "<C-b>", function()
+      --   harpoon:list():select(3)
+      -- end)
       vim.keymap.set("n", "<C-m>", function()
         harpoon:list():select(4)
-
-        -- Toggle previous & next buffers stored within Harpoon list
-        vim.keymap.set("n", "<C-S-P>", function()
-          harpoon:list():prev()
-        end)
-        vim.keymap.set("n", "<C-S-N>", function()
-          harpoon:list():next()
-        end)
       end)
     end,
   },
