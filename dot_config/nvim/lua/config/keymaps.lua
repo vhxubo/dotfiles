@@ -69,7 +69,3 @@ vim.keymap.set("n", "H", "0^", { noremap = true })
 vim.keymap.set("n", "L", "$", { noremap = true })
 vim.keymap.set("n", "<leader>wo", "<C-W>o", { desc = "Delete all other windows" })
 vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close all other tabs" })
-
-vim.keymap.set("n", "<C-b>", function()
-  require("harpoon"):list():select(3)
-end)

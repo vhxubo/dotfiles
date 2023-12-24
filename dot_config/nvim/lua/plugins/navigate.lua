@@ -38,10 +38,10 @@ return {
         end,
       })
       require("telescope").load_extension("harpoon")
-      vim.keymap.set("n", "<leader>hp", function()
+      vim.keymap.set("n", "<C-2>", function()
         harpoon:list():prev()
       end)
-      vim.keymap.set("n", "<leader>hn", function()
+      vim.keymap.set("n", "<C-3>", function()
         harpoon:list():next()
       end)
 
@@ -52,17 +52,16 @@ return {
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end)
 
-      vim.keymap.set("n", "<C-y>", function()
+      vim.keymap.set("n", "<C-7>", function()
         harpoon:list():select(1)
       end)
-      vim.keymap.set("n", "<C-g>", function()
+      vim.keymap.set("n", "<C-8>", function()
         harpoon:list():select(2)
       end)
-      -- doesn't work, need set in keymaps.lua
-      -- vim.keymap.set("n", "<C-b>", function()
-      --   harpoon:list():select(3)
-      -- end)
-      vim.keymap.set("n", "<C-m>", function()
+      vim.keymap.set("n", "<C-9>", function()
+        harpoon:list():select(3)
+      end)
+      vim.keymap.set("n", "<C-0>", function()
         harpoon:list():select(4)
       end)
     end,
