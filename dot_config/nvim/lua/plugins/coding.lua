@@ -1,6 +1,8 @@
 return {
   { "mg979/vim-visual-multi" },
   { "johmsalas/text-case.nvim", config = true },
+  { "tpope/vim-rsi" },
+  { "tpope/vim-unimpaired" },
   {
     "rareitems/printer.nvim",
     config = function()
@@ -150,7 +152,6 @@ return {
       },
     },
   },
-  { "tpope/vim-rsi" },
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
