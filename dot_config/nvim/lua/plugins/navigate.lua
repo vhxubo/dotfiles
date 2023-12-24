@@ -69,35 +69,34 @@ return {
   },
   {
     "harrisoncramer/jump-tag",
-    ft = { "vue", "html", "javascriptreact", "typescriptreact" },
     keys = {
       {
         "[v",
         function()
           require("jump-tag").jumpPrevSibling()
         end,
-        { desc = "Jump to prev sibling tag" },
+        desc = "Jump to prev sibling tag",
       },
       {
         "]v",
         function()
           require("jump-tag").jumpNextSibling()
         end,
-        { desc = "Jump to next sibling tag" },
+        desc = "Jump to next sibling tag",
       },
       {
         "[V",
         function()
           require("jump-tag").jumpParent()
         end,
-        { desc = "Jump to parent tag" },
+        desc = "Jump to parent tag",
       },
       {
         "]V",
         function()
           require("jump-tag").jumpChild()
         end,
-        { desc = "Jump to child tag" },
+        desc = "Jump to child tag",
       },
     },
   },
@@ -115,17 +114,17 @@ return {
       {
         "w",
         "<cmd>lua require('spider').motion('w')<CR>",
-        { desc = "Spider-w" },
+        desc = "Spider-w",
       },
       {
         "e",
         "<cmd>lua require('spider').motion('e')<CR>",
-        { desc = "Spider-e" },
+        desc = "Spider-e",
       },
       {
         "b",
         "<cmd>lua require('spider').motion('b')<CR>",
-        { desc = "Spider-b" },
+        desc = "Spider-b",
       },
     },
   },
