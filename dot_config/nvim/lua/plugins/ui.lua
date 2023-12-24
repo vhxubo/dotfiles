@@ -1,4 +1,6 @@
 return {
+  -- makes hlsearch more useful
+  { "romainl/vim-cool" },
   {
     "rebelot/kanagawa.nvim",
     config = function()
