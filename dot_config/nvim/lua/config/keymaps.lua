@@ -64,7 +64,7 @@ vim.keymap.set("i", "jj", "<esc>")
 vim.keymap.set("i", "<C-k>", '<C-o>"_d$')
 vim.keymap.set("i", "<C-f>", '<C-o>"_dw')
 
-vim.keymap.set("n", "<BS>", ":nohlsearch<cr>", { silent = true, desc = "No highlight search" })
+vim.keymap.set("n", "<BS>", ":nohlsearch<cr>", { noremap = true, silent = true, desc = "No highlight search" })
 vim.keymap.set("n", "H", "0^", { noremap = true })
 vim.keymap.set("n", "L", "$", { noremap = true })
 vim.keymap.set("n", "<leader>wo", "<C-W>o", { desc = "Delete all other windows" })

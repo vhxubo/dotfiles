@@ -7,6 +7,7 @@ return {
         config = function()
           local telescope = require("telescope")
           local lga_actions = require("telescope-live-grep-args.actions")
+
           telescope.setup({
             extensions = {
               live_grep_args = {
@@ -24,7 +25,12 @@ return {
         keys = {
           {
             "<leader>/",
-            ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+            function()
+              local Util = require("lazyvim.util")
+              require("telescope").extensions.live_grep_args.live_grep_args({
+                search_dirs = { Util.root() },
+              })
+            end,
             desc = "Live Grep Args",
           },
         },
@@ -47,7 +53,7 @@ return {
         desc = "List files(cwd)",
       },
       {
-        "<C-t>",
+        "<leader>;",
         function()
           local themes = require("telescope.themes")
           require("telescope.builtin").git_status(themes.get_ivy({
@@ -125,11 +131,6 @@ return {
     keys = {
       {
         "<leader>r",
-        "<Cmd>Telescope frecency<CR>",
-        desc = "Frequency files",
-      },
-      {
-        "<leader>;",
         "<Cmd>Telescope frecency workspace=CWD<CR>",
         desc = "Frequency files(cwd)",
       },

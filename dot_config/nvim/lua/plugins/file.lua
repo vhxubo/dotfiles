@@ -25,16 +25,19 @@ return {
           ["<C-u>"] = "actions.preview_scroll_up",
           ["<C-q>"] = "actions.send_to_qflist",
           ["H"] = "actions.parent",
+          ["<BS>"] = "actions.parent",
           ["L"] = "actions.select",
         },
       })
     end,
   },
   { "is0n/fm-nvim", cmd = { "Lf" } },
+  -- eunuch.vim: Helpers for UNIX
+  -- :Remove :Delete :SudoWrite :Mkdir and so on..
   { "tpope/vim-eunuch" },
   {
     "vhxubo/file-matches.nvim",
-    dev = true,
+    enabled = false,
     config = function()
       require("telescope").setup({
         extensions = {

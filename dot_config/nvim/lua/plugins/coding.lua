@@ -1,8 +1,12 @@
 return {
   { "mg979/vim-visual-multi" },
   { "johmsalas/text-case.nvim", config = true },
+  -- Readline style insertion
   { "tpope/vim-rsi" },
+  -- [<space> and ]<space> for insert space in normal mode
   { "tpope/vim-unimpaired" },
+  -- :%Subvert/facilit{y,ies}/building{,s}/g
+  { "tpope/vim-abolish" },
   {
     "rareitems/printer.nvim",
     config = function()
