@@ -4,12 +4,6 @@ return {
     init = function() end,
   },
   {
-    "L3MON4D3/LuaSnip",
-    config = function()
-      require("luasnip.loaders.from_vscode").load({ paths = "./snippets" })
-    end,
-  },
-  {
     "lukas-reineke/headlines.nvim",
     enabled = false,
   },
