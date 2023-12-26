@@ -72,15 +72,5 @@ return {
   {
     "axelvc/template-string.nvim",
     event = "InsertEnter",
-    opts = {
-      filetypes = {
-        "html",
-        "typescript",
-        "javascript",
-        "typescriptreact",
-        "javascriptreact",
-        "vue",
-      },
-    },
   },
 }

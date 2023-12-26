@@ -20,6 +20,18 @@ return {
             return 'v-for="(item, index) in ' .. parent.snippet.env.POSTFIX_MATCH .. '" :key="index"'
           end, {}),
         }),
+        postfix(".vfb", {
+          f(function(_, parent)
+            return 'v-for="(item, index) in ' .. parent.snippet.env.POSTFIX_MATCH .. '" :key="index" v-bind="item" '
+          end, {}),
+        }),
+        postfix(".vfo", {
+          f(function(_, parent)
+            return 'v-for="(item, index) in '
+              .. parent.snippet.env.POSTFIX_MATCH
+              .. '" :key="index" :label="item.label" :value="item.value" '
+          end, {}),
+        }),
       })
     end,
   },

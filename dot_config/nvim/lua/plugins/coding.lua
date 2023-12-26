@@ -21,8 +21,12 @@ return {
           vue = function(text_inside, text_var)
             return string.format('console.log("%s = ", %s)', text_inside, text_var)
           end,
+          lua = function(text_inside, text_var)
+            return string.format("print(vim.inspect(%s) .. [[%s]])", text_var, text_inside)
+          end,
         },
       })
+      vim.keymap.set("n", "gL", "<Plug>(printer_print)iw")
     end,
   },
 
@@ -153,13 +157,15 @@ return {
     lazy = false,
   },
   {
-    "echasnovski/mini.align",
-    opts = {
-      mappings = {
-        start = "gn",
-        start_with_preview = "gN",
-      },
-    },
+    "junegunn/vim-easy-align",
+    config = function()
+      vim.cmd([[
+        " Start interactive EasyAlign in visual mode (e.g. vipga)
+        xmap gn <Plug>(EasyAlign)
+        " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+        nmap gn <Plug>(EasyAlign)
+      ]])
+    end,
   },
   {
     "windwp/nvim-autopairs",
