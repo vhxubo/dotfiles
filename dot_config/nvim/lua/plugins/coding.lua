@@ -7,6 +7,11 @@ return {
   { "tpope/vim-unimpaired" },
   -- :%Subvert/facilit{y,ies}/building{,s}/g
   { "tpope/vim-abolish" },
+  -- corrent dst function, better than nvim-surround
+  -- keymapbing better than mini.surround
+  -- yss wrap the entire line
+  -- ys[text_object]
+  { "tpope/vim-surround" },
   {
     "rareitems/printer.nvim",
     config = function()
@@ -160,13 +165,5 @@ return {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {},
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({})
-    end,
   },
 }
