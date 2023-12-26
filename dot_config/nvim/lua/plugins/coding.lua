@@ -152,15 +152,6 @@ return {
     opts = { use_default_keymaps = false, max_join_length = 150 },
   },
   {
-    "numToStr/Comment.nvim",
-    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
-    opts = {
-      -- improve comment in vue style tag
-      pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-    },
-    lazy = false,
-  },
-  {
     "junegunn/vim-easy-align",
     config = function()
       vim.cmd([[
@@ -186,11 +177,6 @@ return {
   -- daq, diq
   {
     "beloglazov/vim-textobj-quotes",
-    dependencies = { "kana/vim-textobj-user" },
-  },
-  -- dac, dic
-  {
-    "glts/vim-textobj-comment",
     dependencies = { "kana/vim-textobj-user" },
   },
 }
