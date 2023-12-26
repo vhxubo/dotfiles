@@ -48,6 +48,10 @@ return {
     enabled = false,
   },
   {
+    "echasnovski/mini.ai",
+    enabled = false,
+  },
+  {
     "stevearc/aerial.nvim",
     opts = {
       layout = {

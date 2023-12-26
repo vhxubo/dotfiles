@@ -176,4 +176,21 @@ return {
     event = "InsertEnter",
     opts = {},
   },
+  -- daa, dia, and so on
+  { "wellle/targets.vim" },
+  -- dav, div
+  {
+    "Julian/vim-textobj-variable-segment",
+    dependencies = { "kana/vim-textobj-user" },
+  },
+  -- daq, diq
+  {
+    "beloglazov/vim-textobj-quotes",
+    dependencies = { "kana/vim-textobj-user" },
+  },
+  -- dac, dic
+  {
+    "glts/vim-textobj-comment",
+    dependencies = { "kana/vim-textobj-user" },
+  },
 }
