@@ -153,7 +153,11 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    opts = {},
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+    opts = {
+      -- improve comment in vue style tag
+      pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+    },
     lazy = false,
   },
   {
