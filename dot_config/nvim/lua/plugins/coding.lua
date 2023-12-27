@@ -1,6 +1,7 @@
 return {
   { "mg979/vim-visual-multi" },
   { "johmsalas/text-case.nvim", config = true },
+  { "tpope/vim-repeat" },
   -- Readline style insertion
   { "tpope/vim-rsi" },
   -- [<space> and ]<space> for insert space in normal mode
@@ -30,44 +31,11 @@ return {
     end,
   },
 
-  -- Create annotations with one keybind, and jump your cursor in the inserted annotation
-  {
-    "danymat/neogen",
-    keys = {
-      {
-        "<leader>cc",
-        function()
-          require("neogen").generate({})
-        end,
-        desc = "Neogen Comment",
-      },
-    },
-    opts = { snippet_engine = "luasnip" },
-  },
-
   -- Incremental rename
   {
     "smjonas/inc-rename.nvim",
     cmd = "IncRename",
     config = true,
-  },
-
-  -- Refactoring tool
-  {
-    "ThePrimeagen/refactoring.nvim",
-    keys = {
-      {
-        "<leader>r",
-        function()
-          require("refactoring").select_refactor()
-        end,
-        mode = "v",
-        noremap = true,
-        silent = true,
-        expr = false,
-      },
-    },
-    opts = {},
   },
 
   -- Better increase/descrease
@@ -147,7 +115,7 @@ return {
   {
     "Wansmer/treesj",
     keys = {
-      { "J", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
+      { "<leader>j", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
     },
     opts = { use_default_keymaps = false, max_join_length = 150 },
   },
@@ -167,16 +135,26 @@ return {
     event = "InsertEnter",
     opts = {},
   },
-  -- daa, dia, and so on
-  { "wellle/targets.vim" },
+  -- daa, dia
+  -- * style="color: red; |background: red"
+  -- * const {code, |result} = resp
+  -- da<space>, di<space>
+  -- * class="btn |btn-primary"
+  {
+    "wellle/targets.vim",
+    config = function()
+      -- https://github.com/wellle/targets.vim/issues/254#issuecomment-671852202
+      vim.cmd([[
+        autocmd User targets#mappings#user call targets#mappings#extend({
+          \ 'a': {'argument': [{'o': '[{"([]', 'c': '[])"}]', 's': '[,;]'}]},
+          \ ' ': {'separator': [{'d': ' '}]},
+          \ })
+      ]])
+    end,
+  },
   -- dav, div
   {
     "Julian/vim-textobj-variable-segment",
-    dependencies = { "kana/vim-textobj-user" },
-  },
-  -- daq, diq
-  {
-    "beloglazov/vim-textobj-quotes",
     dependencies = { "kana/vim-textobj-user" },
   },
 }

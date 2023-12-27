@@ -121,7 +121,6 @@ return {
         },
       },
     },
-    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
   },
   -- https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=vhxubo
   {

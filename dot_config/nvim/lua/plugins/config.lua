@@ -48,6 +48,15 @@ return {
     enabled = false,
   },
   {
+    "echasnovski/mini.indentscope",
+    opts = {
+      options = {
+        -- imporve html indent, not move to start char
+        indent_at_cursor = false,
+      },
+    },
+  },
+  {
     "stevearc/aerial.nvim",
     opts = {
       layout = {
