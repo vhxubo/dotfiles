@@ -5,16 +5,14 @@
 	editor = nvim
 [init]
 	defaultBranch = main
-[merge]
-  conflictstyle = diff3
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
-[pager]
-  difftool = true
-# `git dlog` to show `git log -p` with difftastic.
-[alias]
-  dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff; }; f"
 [credential]
   helper = store
 [include]
-  path = /home/vhxubo/.config/gitalias/gitalias.txt
+  path = /home/{{ .name }}/.config/gitalias/gitalias.txt
+[mergetool]
+  prompt = false
+	keepBackup = false
+[merge]
+  tool = nvim
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
