@@ -13,6 +13,8 @@ return {
   -- yss wrap the entire line
   -- ys[text_object]
   { "tpope/vim-surround" },
+  -- cx exchange two motion
+  { "tommcdo/vim-exchange" },
   {
     "rareitems/printer.nvim",
     config = function()
