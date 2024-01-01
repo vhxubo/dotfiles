@@ -15,6 +15,6 @@ vim.opt.laststatus = 3
 -- -- To prevent this, set `splitkeep` to either `screen` or `topline`.
 vim.opt.splitkeep = "screen"
 
-vim.g.maplocalleader = ";"
-
 vim.opt.spelloptions = "camel"
+
+vim.opt.iskeyword:append("-")

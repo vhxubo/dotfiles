@@ -31,3 +31,23 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost", "BufEnter" }, {
     set_vue_marks()
   end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "vue" },
+  callback = function()
+    vim.keymap.set("n", "<LocalLeader>i", "/ } from 'vue'<cr>")
+    vim.keymap.set("n", "<LocalLeader>om", "/onMounted(<cr>")
+    vim.keymap.set("n", "<LocalLeader>m", "/mounted<cr>")
+    vim.keymap.set("n", "<LocalLeader>f", "/function<cr>")
+    vim.keymap.set("n", "<LocalLeader>d", "/data(<cr>")
+    vim.keymap.set("n", "<LocalLeader>p", "/props:<cr>")
+    vim.keymap.set("n", "<LocalLeader>m", "/methods:<cr>")
+    vim.keymap.set("n", "<LocalLeader>c", "/created(<cr>")
+    vim.keymap.set("n", "<LocalLeader>s", "/setup(<cr>")
+    vim.keymap.set("n", "<LocalLeader>S", "/style><cr>")
+    vim.keymap.set("n", "<LocalLeader>r", "/ref(<cr>")
+    vim.keymap.set("n", "<LocalLeader>R", "/reactive(<cr>")
+    -- https://stackoverflow.com/a/36093341/21614895
+    -- \zs is amazing
+    vim.keymap.set("n", "<LocalLeader>C", [[/components: {\_.\{-}\zs}<cr>]])
+  end,
+})

@@ -173,35 +173,4 @@ return {
       require("telescope").load_extension("undo")
     end,
   },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      {
-        -- need install ast-grep
-        "Marskey/telescope-sg",
-        keys = {
-          {
-            "<leader>sg",
-            "<cmd>Telescope ast_grep<cr>",
-            desc = "ast-grep picker",
-          },
-        },
-        config = function()
-          require("telescope").setup({
-            extensions = {
-              ast_grep = {
-                command = {
-                  "ast-grep",
-                  "--json=stream",
-                }, -- must have --json=stream
-                grep_open_files = false, -- search in opened files
-                lang = nil, -- string value, specify language for ast-grep `nil` for default
-              },
-            },
-          })
-          require("telescope").load_extension("ast_grep")
-        end,
-      },
-    },
-  },
 }

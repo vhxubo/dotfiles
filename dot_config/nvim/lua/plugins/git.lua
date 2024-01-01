@@ -23,6 +23,13 @@ return {
   {
     "akinsho/git-conflict.nvim",
     version = "*",
-    config = true,
+    config = function()
+      require("git-conflict").setup({
+        default_mappings = {
+          next = "]g",
+          prev = "[g",
+        },
+      })
+    end,
   },
 }
