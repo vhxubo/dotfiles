@@ -6,8 +6,6 @@ return {
   { "tpope/vim-rsi" },
   -- [<space> and ]<space> for insert space in normal mode
   { "tpope/vim-unimpaired" },
-  -- :%Subvert/facilit{y,ies}/building{,s}/g
-  { "tpope/vim-abolish" },
   -- corrent dst function, better than nvim-surround
   -- keymapbing better than mini.surround
   -- yss wrap the entire line
@@ -17,6 +15,7 @@ return {
   { "tommcdo/vim-exchange" },
   {
     "rareitems/printer.nvim",
+    event = "BufEnter",
     config = function()
       require("printer").setup({
         keymap = "gl",
@@ -137,8 +136,9 @@ return {
     event = "InsertEnter",
     opts = {},
   },
-  -- daa, dia
+  -- daA, diA
   -- * style="color: red; |background: red"
+  -- daa, dia
   -- * const {code, |result} = resp
   -- da<space>, di<space>
   -- * class="btn |btn-primary"
@@ -148,7 +148,8 @@ return {
       -- https://github.com/wellle/targets.vim/issues/254#issuecomment-671852202
       vim.cmd([[
         autocmd User targets#mappings#user call targets#mappings#extend({
-          \ 'a': {'argument': [{'o': '[{"([]', 'c': '[])"}]', 's': '[,;]'}]},
+          \ 'a': {'argument': [{'o': '[{([]', 'c': '[])}]', 's': '[,;]'}]},
+          \ 'A': {'argument': [{'o': '["]', 'c': '["]', 's': '[;]'}]},
           \ ' ': {'separator': [{'d': ' '}]},
           \ })
       ]])

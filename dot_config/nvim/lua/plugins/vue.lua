@@ -72,5 +72,6 @@ return {
   {
     "axelvc/template-string.nvim",
     event = "InsertEnter",
+    config = true,
   },
 }

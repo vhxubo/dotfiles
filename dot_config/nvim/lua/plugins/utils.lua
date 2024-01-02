@@ -15,7 +15,7 @@ return {
           local luasnip = require("luasnip")
           local cmp = require("cmp")
 
-          opts.mapping = {
+          opts.mapping = vim.tbl_extend("force", opts.mapping, {
             ["<Tab>"] = function(fallback)
               if cmp.visible() then
                 cmp.select_next_item()
@@ -34,7 +34,7 @@ return {
                 fallback()
               end
             end,
-          }
+          })
           cmp.setup(opts)
         end,
       },
@@ -42,19 +42,23 @@ return {
       "L3MON4D3/LuaSnip",
     },
   },
-  { "ThePrimeagen/vim-be-good" },
+  { "ThePrimeagen/vim-be-good", event = "VeryLazy" },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = {
       "kevinhwang91/promise-async",
       "nvim-treesitter/nvim-treesitter",
     },
+    event = "BufRead",
     config = function()
       require("ufo").setup({
         provider_selector = function()
           return { "treesitter", "indent" }
         end,
       })
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
     end,
   },
   {
@@ -74,30 +78,8 @@ return {
     end,
   },
   {
-    "skywind3000/asyncrun.vim",
-    config = function()
-      vim.g.asyncrun_open = 6
-      vim.cmd([[
-        cnoreabbrev Ar AsyncRun
-        cnoreabbrev AR AsyncRun
-        cnoreabbrev As AsyncStop
-        cnoreabbrev AS AsyncStop
-      ]])
-    end,
-  },
-  {
-    "skywind3000/asynctasks.vim",
-    config = function()
-      vim.g.asynctasks_extra_config = { "~/.config/nvim/extra/tasks.ini" }
-      vim.g.asynctasks_term_pos = "tab"
-      vim.cmd([[
-        cnoreabbrev At AsyncTask
-        cnoreabbrev AT AsyncTask
-      ]])
-    end,
-  },
-  {
     "max397574/better-escape.nvim",
+    event = "InsertCharPre",
     config = true,
   },
 }

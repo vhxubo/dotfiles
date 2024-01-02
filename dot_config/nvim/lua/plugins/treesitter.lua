@@ -44,9 +44,9 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "ray-x/cmp-treesitter" },
+    dependencies = { "ray-x/cmp-treesitter", "hrsh7th/cmp-calc" },
     opts = function(_, opts)
-      table.insert(opts.sources, { name = "treesitter" })
+      vim.list_extend(opts.sources, { { name = "treesitter" }, { name = "calc" } })
     end,
   },
 }

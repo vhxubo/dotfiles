@@ -16,5 +16,3 @@ vim.opt.laststatus = 3
 vim.opt.splitkeep = "screen"
 
 vim.opt.spelloptions = "camel"
-
-vim.opt.iskeyword:append("-")
