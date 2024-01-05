@@ -156,8 +156,13 @@ return {
     end,
   },
   -- dav, div
-  {
-    "Julian/vim-textobj-variable-segment",
-    dependencies = { "kana/vim-textobj-user" },
-  },
+  { "Julian/vim-textobj-variable-segment", dependencies = { "kana/vim-textobj-user" } },
+  -- dae, die
+  { "kana/vim-textobj-entire", dependencies = { "kana/vim-textobj-user" } },
+  -- dal, dil
+  { "kana/vim-textobj-line", dependencies = { "kana/vim-textobj-user" } },
+  -- vac, vic
+  { "idbrii/textobj-word-column.vim", dependencies = { "kana/vim-textobj-user" } },
+  -- dsf, dsF
+  { "Matt-A-Bennett/vim-surround-funk", dependencies = { "kana/vim-textobj-user" } },
 }

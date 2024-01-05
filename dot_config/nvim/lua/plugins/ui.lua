@@ -141,49 +141,18 @@ return {
     end,
   },
   {
-    "nvim-focus/focus.nvim",
-    event = "VeryLazy",
+    "karb94/neoscroll.nvim",
     config = function()
-      require("focus").setup({
-        ui = {
-          signcolumn = false,
-          cursorline = false,
-        },
-      })
-      local ignore_filetypes = { "neo-tree", "oil", "fugitiveblame", "DiffviewFiles", "Outline", "aerial" }
-      local ignore_buftypes = { "nofile", "prompt", "popup" }
-
-      local augroup = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
-
-      vim.api.nvim_create_autocmd("WinEnter", {
-        group = augroup,
-        callback = function(_)
-          if vim.tbl_contains(ignore_buftypes, vim.bo.buftype) then
-            vim.w.focus_disable = true
-          else
-            vim.w.focus_disable = false
-          end
-        end,
-        desc = "Disable focus autoresize for BufType",
-      })
-
-      vim.api.nvim_create_autocmd("FileType", {
-        group = augroup,
-        callback = function(_)
-          if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
-            vim.b.focus_disable = true
-          else
-            vim.b.focus_disable = false
-          end
-        end,
-        desc = "Disable focus autoresize for FileType",
+      require("neoscroll").setup({
+        -- remove <C-e>, used by harpoon
+        mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "zt", "zz", "zb" },
+        easing_function = "sine",
       })
     end,
   },
+  -- Dim inactive window
   {
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup({})
-    end,
+    "levouh/tint.nvim",
+    opts = {},
   },
 }
