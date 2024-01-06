@@ -41,7 +41,7 @@ return {
     "telescope.nvim",
     keys = {
       {
-        "<leader>'",
+        "<leader>.",
         function()
           local themes = require("telescope.themes")
           require("telescope.builtin").find_files(themes.get_ivy({
@@ -130,7 +130,7 @@ return {
     "nvim-telescope/telescope-frecency.nvim",
     keys = {
       {
-        "<leader>r",
+        "<leader><leader>",
         "<Cmd>Telescope frecency workspace=CWD<CR>",
         desc = "Frequency files(cwd)",
       },
@@ -171,6 +171,32 @@ return {
     config = function(_, opts)
       require("telescope").setup(opts)
       require("telescope").load_extension("undo")
+    end,
+  },
+  {
+    "axkirillov/easypick.nvim",
+    dependencies = "nvim-telescope/telescope.nvim",
+    keys = {
+      {
+        "<leader>'",
+        "<cmd>Easypick history<cr>",
+        desc = "Git HEAD history",
+      },
+    },
+    config = function()
+      local easypick = require("easypick")
+      easypick.setup({
+        pickers = {
+          {
+            name = "history",
+            command = 'git show --pretty="" --name-only HEAD^^^..HEAD | uniq',
+            opts = require("telescope.themes").get_ivy({
+              initial_mode = "normal",
+            }),
+            previewer = easypick.previewers.default(),
+          },
+        },
+      })
     end,
   },
 }
