@@ -31,7 +31,6 @@ return {
       })
     end,
   },
-  { "is0n/fm-nvim", cmd = { "Lf" } },
   -- eunuch.vim: Helpers for UNIX
   -- :Remove :Delete :SudoWrite :Mkdir and so on..
   { "tpope/vim-eunuch" },

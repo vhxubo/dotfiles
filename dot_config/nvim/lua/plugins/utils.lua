@@ -46,4 +46,8 @@ return {
     event = "InsertCharPre",
     config = true,
   },
+  {
+    "stevearc/overseer.nvim",
+    opts = {},
+  },
 }
