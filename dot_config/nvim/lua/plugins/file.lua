@@ -35,23 +35,4 @@ return {
   -- eunuch.vim: Helpers for UNIX
   -- :Remove :Delete :SudoWrite :Mkdir and so on..
   { "tpope/vim-eunuch" },
-  {
-    "vhxubo/file-matches.nvim",
-    enabled = false,
-    config = function()
-      require("telescope").setup({
-        extensions = {
-          file_matches = {
-            layout_strategy = "bottom_pane",
-            layout_config = {
-              prompt_position = "bottom",
-              height = 0.8,
-            },
-          },
-        },
-      })
-      require("telescope").load_extension("file_matches")
-      vim.keymap.set("n", "gm", ":Telescope file_matches<cr>")
-    end,
-  },
 }
