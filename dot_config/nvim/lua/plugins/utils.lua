@@ -2,18 +2,9 @@ return {
   { "h-hg/fcitx.nvim" },
   { "wakatime/vim-wakatime" },
   {
-    "abecodes/tabout.nvim",
+    "kawre/neotab.nvim",
     event = "InsertEnter",
-    opts = {
-      act_as_tab = false,
-    },
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      {
-        "hrsh7th/nvim-cmp",
-      },
-      "L3MON4D3/LuaSnip",
-    },
+    opts = {},
   },
   { "ThePrimeagen/vim-be-good", event = "VeryLazy" },
   {
