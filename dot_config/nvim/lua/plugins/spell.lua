@@ -1,12 +1,5 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
-    dependencies = { "f3fora/cmp-spell" },
-    opts = function(_, opts)
-      vim.list_extend(opts.sources, { { name = "spell" } })
-    end,
-  },
-  {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}

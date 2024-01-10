@@ -4,7 +4,13 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "RRethy/nvim-treesitter-endwise",
-      "andersevenrud/nvim_context_vt",
+      {
+        "andersevenrud/nvim_context_vt",
+        opts = { -- How many lines required after starting position to show virtual text
+          -- Default: 1 (equals two lines total)
+          min_rows = 3,
+        },
+      },
       "HiPhish/rainbow-delimiters.nvim",
     },
     opts = {
