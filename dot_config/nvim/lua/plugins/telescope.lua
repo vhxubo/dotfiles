@@ -128,13 +128,6 @@ return {
   },
   {
     "nvim-telescope/telescope-frecency.nvim",
-    keys = {
-      {
-        "<leader><leader>",
-        "<Cmd>Telescope frecency workspace=CWD<CR>",
-        desc = "Frequency files(cwd)",
-      },
-    },
     config = function()
       require("telescope").setup({
         extensions = {
@@ -146,6 +139,7 @@ return {
         },
       })
       require("telescope").load_extension("frecency")
+      vim.keymap.set("n", "<leader><space>", "<Cmd>Telescope frecency workspace=CWD<CR>")
     end,
   },
   {
