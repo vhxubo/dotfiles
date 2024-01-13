@@ -58,6 +58,8 @@ vim.keymap.set(
 )
 
 vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })
+vim.keymap.set("x", "n", "nzz")
+vim.keymap.set("x", "N", "Nzz")
 
 vim.keymap.set("i", "jk", "<cmd>w<cr><esc>", { desc = "Save file" })
 vim.keymap.set("i", "jj", "<esc>")
@@ -65,7 +67,7 @@ vim.keymap.set("i", "<C-k>", '<C-o>"_d$')
 vim.keymap.set("i", "<C-f>", "<right>")
 vim.keymap.set("i", "<C-b>", "<left>")
 
-vim.keymap.set("n", "<BS>", ":nohlsearch<cr>", { noremap = true, silent = true, desc = "No highlight search" })
+vim.keymap.set("n", "<BS>", "<C-^>", { noremap = true, silent = true })
 vim.keymap.set("n", "H", "0^", { noremap = true })
 vim.keymap.set("n", "L", "$", { noremap = true })
 vim.keymap.set("n", "n", "nzzzv")

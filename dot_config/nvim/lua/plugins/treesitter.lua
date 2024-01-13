@@ -50,9 +50,12 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "ray-x/cmp-treesitter", "hrsh7th/cmp-calc" },
+    dependencies = {
+      "hrsh7th/cmp-calc",
+      "lukas-reineke/cmp-rg",
+    },
     opts = function(_, opts)
-      vim.list_extend(opts.sources, { { name = "treesitter" }, { name = "calc" } })
+      vim.list_extend(opts.sources, { { name = "rg", max_item_count = 3 }, { name = "calc" } })
     end,
   },
 }
