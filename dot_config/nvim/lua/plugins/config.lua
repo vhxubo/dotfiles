@@ -58,6 +58,7 @@ return {
   },
   {
     "stevearc/aerial.nvim",
+    optional = true,
     opts = {
       layout = {
         width = 30,
