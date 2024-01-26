@@ -26,6 +26,9 @@ return {
           lua = function(text_inside, text_var)
             return string.format("print(vim.inspect(%s) .. [[%s]])", text_var, text_inside)
           end,
+          javascriptreact = function(text_inside, text_var)
+            return string.format('console.log("%s = ", %s)', text_inside, text_var)
+          end,
         },
       })
       vim.keymap.set("n", "gL", "<Plug>(printer_print)iw")

@@ -11,7 +11,7 @@ return {
     opts = {
       linters_by_ft = {
         -- Use the "*" filetype to run formatters on all filetypes.
-        ["*"] = { "cspell" },
+        -- ["*"] = { "cspell" },
       },
     },
   },

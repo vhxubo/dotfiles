@@ -3,6 +3,7 @@ return {
   { "romainl/vim-cool" },
   {
     "rebelot/kanagawa.nvim",
+    enabled = false,
     config = function()
       vim.cmd.colorscheme("kanagawa")
     end,
