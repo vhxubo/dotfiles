@@ -66,46 +66,6 @@ return {
       end)
     end,
   },
-  {
-    "harrisoncramer/jump-tag",
-    keys = {
-      {
-        "[v",
-        function()
-          require("jump-tag").jumpPrevSibling()
-        end,
-        desc = "Jump to prev sibling tag",
-      },
-      {
-        "]v",
-        function()
-          require("jump-tag").jumpNextSibling()
-        end,
-        desc = "Jump to next sibling tag",
-      },
-      {
-        "[V",
-        function()
-          require("jump-tag").jumpParent()
-        end,
-        desc = "Jump to parent tag",
-      },
-      {
-        "]V",
-        function()
-          require("jump-tag").jumpChild()
-        end,
-        desc = "Jump to child tag",
-      },
-    },
-  },
-  {
-    "jinh0/eyeliner.nvim",
-    opts = {
-      highlight_on_key = true, -- show highlights only after keypress
-      dim = true, -- dim all other characters if set to true (recommended!)
-    },
-  },
   { "nacro90/numb.nvim", config = true },
   {
     "chrisgrieser/nvim-spider",
