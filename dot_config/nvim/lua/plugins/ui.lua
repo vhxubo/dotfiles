@@ -123,24 +123,6 @@ return {
       },
     },
   },
-  -- https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=vhxubo
-  {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function(_, opts)
-      local logo = [[
-██╗   ██╗██╗  ██╗██╗  ██╗██╗   ██╗██████╗  ██████╗ 
-██║   ██║██║  ██║╚██╗██╔╝██║   ██║██╔══██╗██╔═══██╗
-██║   ██║███████║ ╚███╔╝ ██║   ██║██████╔╝██║   ██║
-╚██╗ ██╔╝██╔══██║ ██╔██╗ ██║   ██║██╔══██╗██║   ██║
- ╚████╔╝ ██║  ██║██╔╝ ██╗╚██████╔╝██████╔╝╚██████╔╝
-  ╚═══╝  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ 
-      ]]
-
-      logo = string.rep("\n", 6) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
-    end,
-  },
   {
     "karb94/neoscroll.nvim",
     config = function()

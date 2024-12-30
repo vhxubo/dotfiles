@@ -3,7 +3,7 @@
 -- Add any additional autocmds here
 
 -- auto mark vue setup import return
-require("vhxubo/auto-mark")
+-- require("vhxubo/auto-mark")
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {

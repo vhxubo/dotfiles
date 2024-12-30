@@ -1,0 +1,9 @@
+{
+  "Log Here": {
+    "prefix": "clh",
+    "body": [
+      "console.log('here')",
+      "$0"
+    ]
+  }
+}
