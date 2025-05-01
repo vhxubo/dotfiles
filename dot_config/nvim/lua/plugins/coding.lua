@@ -34,57 +34,6 @@ return {
       vim.keymap.set("n", "gL", "<Plug>(printer_print)iw")
     end,
   },
-
-  -- Incremental rename
-  {
-    "smjonas/inc-rename.nvim",
-    cmd = "IncRename",
-    config = true,
-  },
-
-  -- Better increase/descrease
-  {
-    "monaqa/dial.nvim",
-    keys = {
-      {
-        "<C-a>",
-        function()
-          return require("dial.map").inc_normal()
-        end,
-        expr = true,
-        desc = "Increment",
-      },
-      {
-        "<C-x>",
-        function()
-          return require("dial.map").dec_normal()
-        end,
-        expr = true,
-        desc = "Decrement",
-      },
-    },
-    config = function()
-      local augend = require("dial.augend")
-      require("dial.config").augends:register_group({
-        default = {
-          augend.integer.alias.decimal,
-          augend.constant.alias.bool,
-          augend.semver.alias.semver,
-          augend.constant.new({ elements = { "let", "const" } }),
-          augend.constant.new({
-            elements = { "&&", "||" },
-            word = false,
-            cyclic = true,
-          }),
-          augend.constant.new({
-            elements = { "==", "!=" },
-            word = false,
-            cyclic = true,
-          }),
-        },
-      })
-    end,
-  },
   {
     "potamides/pantran.nvim",
     config = function()

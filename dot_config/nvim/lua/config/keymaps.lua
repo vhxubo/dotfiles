@@ -2,8 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- require("vhxubo.setup-insert").setup()
-
 -- copy file path
 vim.keymap.set(
   "n",

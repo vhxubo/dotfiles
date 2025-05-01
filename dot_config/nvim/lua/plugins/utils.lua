@@ -1,29 +1,8 @@
 return {
-  { "h-hg/fcitx.nvim" },
-  { "wakatime/vim-wakatime" },
   {
     "kawre/neotab.nvim",
     event = "InsertEnter",
     opts = {},
-  },
-  { "ThePrimeagen/vim-be-good", event = "VeryLazy" },
-  {
-    "kevinhwang91/nvim-ufo",
-    dependencies = {
-      "kevinhwang91/promise-async",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    event = "BufRead",
-    config = function()
-      require("ufo").setup({
-        provider_selector = function()
-          return { "treesitter", "indent" }
-        end,
-      })
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-    end,
   },
   {
     "gelguy/wilder.nvim",

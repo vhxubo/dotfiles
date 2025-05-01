@@ -123,16 +123,6 @@ return {
       },
     },
   },
-  {
-    "karb94/neoscroll.nvim",
-    config = function()
-      require("neoscroll").setup({
-        -- remove <C-e>, used by harpoon
-        mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>", "<C-y>", "zt", "zz", "zb" },
-        easing_function = "sine",
-      })
-    end,
-  },
   -- Dim inactive window
   {
     "levouh/tint.nvim",

@@ -19,7 +19,8 @@ vim.opt.spell = true
 vim.opt.spelloptions = "camel"
 vim.opt.spelllang = { "en_us" }
 
--- https://jaketrent.com/post/set-node-version-nvim/
--- required: fnm install v20.10.0
-local node_bin = "/home/vhxubo/.local/share/fnm/node-versions/v20.10.0/installation/bin"
-vim.cmd("let $PATH = '" .. node_bin .. ":' . $PATH")
+vim.g.neovide_cursor_animation_length = 0.00
+vim.g.neovide_cursor_trail_size = 0
+vim.g.neovide_cursor_animate_in_insert_mode = false
+vim.g.neovide_cursor_animate_command_line = false
+vim.o.guifont = "Maple Mono NF CN:h14" -- text below applies for VimScript

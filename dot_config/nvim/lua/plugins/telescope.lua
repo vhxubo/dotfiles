@@ -110,7 +110,6 @@ return {
                 actions.close(prompt_bufnr)
                 local selection = action_state.get_selected_entry()
                 local origin_position = vim.fn.getpos(".")
-                -- use with vhxubo/auto-mark.lua
                 local import_position = vim.fn.getpos("'i")
                 if import_position[2] ~= 0 then
                   vim.fn.setpos(".", import_position)
@@ -124,23 +123,6 @@ return {
         },
       })
       require("telescope").load_extension("import")
-    end,
-  },
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    enabled = false,
-    config = function()
-      require("telescope").setup({
-        extensions = {
-          frecency = {
-            workspaces = {
-              ["nvim"] = "/home/vhxubo/.config/nvim",
-            },
-          },
-        },
-      })
-      require("telescope").load_extension("frecency")
-      vim.keymap.set("n", "<leader><space>", "<Cmd>Telescope frecency workspace=CWD<CR>")
     end,
   },
   {
