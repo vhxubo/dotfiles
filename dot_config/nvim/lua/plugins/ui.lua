@@ -2,55 +2,10 @@ return {
   -- makes hlsearch more useful
   { "romainl/vim-cool" },
   {
-    "rebelot/kanagawa.nvim",
-    enabled = false,
-    config = function()
-      vim.cmd.colorscheme("kanagawa")
-    end,
-  },
-  {
-    "sainnhe/gruvbox-material",
-    enabled = false,
-    config = function()
-      vim.g.gruvbox_material_forground = "material"
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_ui_contrast = "high"
-      vim.g.gruvbox_material_float_style = "dim"
-      vim.g.gruvbox_material_statusline_style = "material"
-      vim.g.gruvbox_material_better_performance = 1
-      vim.cmd.colorscheme("gruvbox-material")
-    end,
-  },
-  {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 5000,
     },
-  },
-  -- filter some notify, and some msg_show split to view
-  {
-    "folke/noice.nvim",
-    opts = function(_, opts)
-      table.insert(opts.routes, {
-        filter = {
-          event = "notify",
-          find = "No information available",
-        },
-        opts = { skip = true },
-      })
-      table.insert(opts.routes, {
-        filter = {
-          event = "notify",
-          find = "method textDocument/signatureHelp is not supported by any of the servers registered for the current buffer",
-        },
-        opts = { skip = true },
-      })
-      -- always route any messages with more than 20 lines to the split view
-      table.insert(opts.routes, {
-        view = "split",
-        filter = { event = "msg_show", min_height = 20 },
-      })
-    end,
   },
   -- buffer line
   {
@@ -122,10 +77,5 @@ return {
         },
       },
     },
-  },
-  -- Dim inactive window
-  {
-    "levouh/tint.nvim",
-    opts = {},
   },
 }

@@ -6,21 +6,6 @@ return {
     end,
   },
   {
-    "sindrets/diffview.nvim",
-    keys = {
-      {
-        "<leader>gd",
-        "<cmd>DiffviewOpen<cr>",
-        desc = "Open Diffview",
-      },
-      {
-        "<leader>gD",
-        "<cmd>DiffviewClose<cr>",
-        desc = "Close Diffview",
-      },
-    },
-  },
-  {
     "akinsho/git-conflict.nvim",
     version = "*",
     config = function()

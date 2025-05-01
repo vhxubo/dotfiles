@@ -16,8 +16,6 @@ return {
     "lualine.nvim",
     opts = {
       options = {
-        -- component_separators = { left = "", right = "" },
-        -- component_separators = { left = "»", right = "«" },
         component_separators = { left = "»", right = "" },
         section_separators = { left = "", right = "" },
       },
@@ -29,61 +27,6 @@ return {
     "L3MON4D3/LuaSnip",
     keys = function()
       return {}
-    end,
-  },
-  -- then: setup supertab in cmp
-  {
-    "hrsh7th/nvim-cmp",
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      local has_words_before = function()
-        if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
-          return false
-        end
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
-      end
-      local check_backspace = function()
-        local col = vim.fn.col(".") - 1
-
-        return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
-      end
-
-      local luasnip = require("luasnip")
-      local cmp = require("cmp")
-
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() and has_words_before() then
-            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-          elseif luasnip.expandable() then
-            luasnip.expand()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          elseif check_backspace() then
-            -- fallback()
-            require("neotab").tabout()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-      })
-      cmp.event:on("menu_opened", function()
-        vim.b.copilot_suggestion_hidden = true
-      end)
-
-      cmp.event:on("menu_closed", function()
-        vim.b.copilot_suggestion_hidden = false
-      end)
     end,
   },
 }

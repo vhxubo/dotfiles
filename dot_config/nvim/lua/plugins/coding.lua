@@ -1,16 +1,17 @@
 return {
   { "mg979/vim-visual-multi" },
   { "johmsalas/text-case.nvim", config = true },
+  {
+    "keaising/im-select.nvim",
+    config = function()
+        require("im_select").setup({})
+    end,
+  },
   { "tpope/vim-repeat" },
   -- Readline style insertion
   { "tpope/vim-rsi" },
   -- [<space> and ]<space> for insert space in normal mode
   { "tpope/vim-unimpaired" },
-  -- corrent dst function, better than nvim-surround
-  -- keymapbing better than mini.surround
-  -- yss wrap the entire line
-  -- ys[text_object]
-  { "tpope/vim-surround" },
   -- cx exchange two motion
   { "tommcdo/vim-exchange" },
   {
@@ -35,44 +36,6 @@ return {
     end,
   },
   {
-    "potamides/pantran.nvim",
-    config = function()
-      local pantran = require("pantran")
-      pantran.setup({
-        default_engine = "google",
-      })
-      vim.keymap.set({ "n", "x" }, "<leader>tt", function()
-        vim.cmd("Pantran")
-        vim.cmd("startinsert")
-      end, { desc = "Translate typing to English" })
-      vim.keymap.set({ "n", "x" }, "<leader>tj", function()
-        return pantran.motion_translate({
-          target = "zh-CN",
-        })
-      end, { noremap = true, silent = true, expr = true, desc = "Translate to Chinese" })
-      vim.keymap.set(
-        { "n", "x" },
-        "<leader>tr",
-        pantran.motion_translate,
-        { noremap = true, silent = true, expr = true, desc = "Translate to English" }
-      )
-    end,
-  },
-  {
-    "mizlan/iswap.nvim",
-    config = function()
-      require("iswap").setup()
-      vim.keymap.set({ "n", "x" }, "<Leader>i", "<cmd>ISwapNode<cr>", { noremap = true })
-    end,
-  },
-  {
-    "Wansmer/treesj",
-    keys = {
-      { "<leader>j", "<cmd>TSJToggle<cr>", desc = "Join Toggle" },
-    },
-    opts = { use_default_keymaps = false, max_join_length = 150 },
-  },
-  {
     "junegunn/vim-easy-align",
     config = function()
       vim.cmd([[
@@ -82,11 +45,6 @@ return {
         nmap gn <Plug>(EasyAlign)
       ]])
     end,
-  },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
   },
   -- daA, diA
   -- * style="color: red; |background: red"
@@ -115,6 +73,4 @@ return {
   { "kana/vim-textobj-line", dependencies = { "kana/vim-textobj-user" } },
   -- vac, vic
   { "idbrii/textobj-word-column.vim", dependencies = { "kana/vim-textobj-user" } },
-  -- dsf, dsF
-  { "Matt-A-Bennett/vim-surround-funk", dependencies = { "kana/vim-textobj-user" } },
 }
