@@ -1,15 +1,4 @@
 return {
-  {
-    "andymass/vim-matchup",
-    config = function(_, opts)
-      opts.matchup = {
-        enable = true,
-        -- set up for match ' and "
-        enable_quotes = true,
-      }
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-  },
   { "christoomey/vim-tmux-navigator", event = "BufReadPre" },
   { "nacro90/numb.nvim", config = true },
   {
