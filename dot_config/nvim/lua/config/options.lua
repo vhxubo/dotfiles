@@ -29,6 +29,9 @@ if vim.g.neovide == true then
     vim.g.neovide_scroll_animation_far_lines = 0
 
     vim.o.guifont = "Maple Mono NF CN:h14" -- text below applies for VimScript
+    vim.g.neovide_opacity = 0.95
+    vim.g.neovide_normal_opacity = 0.95
+
     vim.api.nvim_set_keymap('n', '<F11>', ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
 end
 
