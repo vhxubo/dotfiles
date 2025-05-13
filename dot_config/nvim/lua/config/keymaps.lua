@@ -68,3 +68,5 @@ vim.keymap.set("i", "<C-b>", "<left>")
 vim.keymap.set("n", "<BS>", "<C-^>", { noremap = true, silent = true })
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("i", "<C-BS>", "<C-w>")
