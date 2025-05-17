@@ -1,10 +1,4 @@
 return {
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      timeout = 5000,
-    },
-  },
   -- filename
   {
     "b0o/incline.nvim",

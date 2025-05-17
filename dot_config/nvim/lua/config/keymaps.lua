@@ -36,37 +36,28 @@ vim.keymap.set("n", "<leader>yi", function()
   vim.fn.setreg("+", result)
 end, { silent = true, desc = "Copy relative path with import" })
 
--- the best register map
--- replace selected but save the clipboard
-vim.keymap.set("x", "<leader>P", [["_dP]], { desc = "Replace selected but save the clipboard" })
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delecte to blck hole" })
 -- https://vim.fandom.com/wiki/Power_of_g
 -- the best map for FrontEnd developer
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>Dl",
-  [[:g/console.log/exe 'normal! "_dd'<cr>]],
-  { silent = true, desc = "Delecte file console.log" }
-)
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>Df",
-  [[:call delete(expand('%')) | bdelete!<cr>]],
-  { silent = true, desc = "Delecte current file and buffer" }
-)
+-- vim.keymap.set(
+--   { "n", "v" },
+--   "<leader>Dl",
+--   [[:g/console.log/exe 'normal! "_dd'<cr>]],
+--   { silent = true, desc = "Delecte file console.log" }
+-- )
+-- vim.keymap.set(
+--   { "n", "v" },
+--   "<leader>Df",
+--   [[:call delete(expand('%')) | bdelete!<cr>]],
+--   { silent = true, desc = "Delecte current file and buffer" }
+-- )
 
 vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })
 vim.keymap.set("x", "n", "nzz")
 vim.keymap.set("x", "N", "Nzz")
 
-vim.keymap.set("i", "jk", "<cmd>w<cr><esc>", { desc = "Save file" })
-vim.keymap.set("i", "jj", "<esc>")
 vim.keymap.set("i", "<C-k>", '<C-o>"_d$')
 vim.keymap.set("i", "<C-f>", "<right>")
 vim.keymap.set("i", "<C-b>", "<left>")
 
-vim.keymap.set("n", "<BS>", "<C-^>", { noremap = true, silent = true })
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
-vim.keymap.set("i", "<C-BS>", "<C-w>")

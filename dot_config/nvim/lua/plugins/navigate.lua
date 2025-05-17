@@ -1,5 +1,4 @@
 return {
-  { "christoomey/vim-tmux-navigator", event = "BufReadPre" },
   { "nacro90/numb.nvim", config = true },
   {
     "chrisgrieser/nvim-spider",
