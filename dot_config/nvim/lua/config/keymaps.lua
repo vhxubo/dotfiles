@@ -50,6 +50,10 @@ end, { silent = true, desc = "Copy relative path with import" })
 --   [[:call delete(expand('%')) | bdelete!<cr>]],
 --   { silent = true, desc = "Delecte current file and buffer" }
 -- )
+--
+vim.keymap.set("n", "[g", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { silent = true })
 
 vim.keymap.set("x", "<leader>n", ":normal ", { desc = "Normal quickly" })
 vim.keymap.set("x", "n", "nzz")

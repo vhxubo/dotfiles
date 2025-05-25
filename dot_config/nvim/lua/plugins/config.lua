@@ -9,6 +9,14 @@ return {
     },
   },
   {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        mode = "tabs",
+      },
+    },
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       window = {
@@ -35,6 +43,48 @@ return {
           end
           vim.cmd("silent !start explorer " .. p)
         end,
+      },
+    },
+  },
+  {
+    "mini.surround",
+    opts = {
+      custom_surroundings = {
+        -- The `[%p%w]` is the "punctuaion+alphanumeric` part
+        t = { input = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" } },
+        T = {
+          input = { "<(%w+)[^<>]->.-</%1>", "^<()%w+().*</()%w+()>$" },
+          output = function()
+            local tag_name = MiniSurround.user_input("Tag name")
+            if tag_name == nil then
+              return nil
+            end
+            return { left = tag_name, right = tag_name }
+          end,
+        },
+      },
+    },
+  },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
+  {
+    "hedyhli/outline.nvim",
+    opts = {
+      outline_window = {
+        position = "left",
+      },
+      symbols = {
+        filter = {
+          default = { "String", exclude = true },
+        },
       },
     },
   },

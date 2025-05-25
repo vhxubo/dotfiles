@@ -32,4 +32,24 @@ return {
       vim.keymap.set("n", "gL", "<Plug>(printer_print)iw")
     end,
   },
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        keymaps = {
+          insert = "<C-g>s",
+          normal = "gs",
+          normal_cur = "gS",
+          normal_line = "gsgs",
+          normal_cur_line = "gSgS",
+          visual = "gz",
+          visual_line = "gZ",
+          delete = "gsd",
+          change = "gsr",
+        },
+      })
+    end,
+  },
 }

@@ -6,6 +6,8 @@ vim.opt.foldcolumn = "1" -- '0' is not bad
 vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
@@ -36,20 +38,3 @@ if vim.g.neovide == true then
 
   vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
 end
-
--- vim.g.snacks_animate = true
-
-if vim.g.neovide then
-  vim.keymap.set("n", "<C-s>", ":w<CR>") -- Save
-  vim.keymap.set("v", "<C-c>", '"+y') -- Copy
-  vim.keymap.set("n", "<C-v>", '"+P') -- Paste normal mode
-  vim.keymap.set("v", "<C-v>", '"+P') -- Paste visual mode
-  vim.keymap.set("c", "<C-v>", "<C-R>+") -- Paste command mode
-  vim.keymap.set("i", "<C-v>", '<ESC>l"+Pli') -- Paste insert mode
-end
-
--- Allow clipboard copy paste in neovim
-vim.api.nvim_set_keymap("", "<C-v>", "+p<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("!", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "<C-v>", "<C-R>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<C-v>", "<C-R>+", { noremap = true, silent = true })
