@@ -69,4 +69,22 @@ return {
       vim.g.loaded_netrwPlugin = 1
     end,
   },
+  {
+    "s1n7ax/nvim-window-picker",
+    name = "window-picker",
+    event = "VeryLazy",
+    version = "2.*",
+    config = function()
+      require("window-picker").setup({
+        hint = "floating-big-letter",
+        show_prompt = false,
+      })
+      function focus_window()
+        local window = require("window-picker").pick_window()
+        vim.api.nvim_set_current_win(window)
+      end
+
+      vim.keymap.set("n", "<leader>ww", focus_window)
+    end,
+  },
 }

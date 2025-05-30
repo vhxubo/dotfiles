@@ -17,17 +17,10 @@ return {
           return { { icon, guifg = color }, { " " }, { filename } }
         end,
         window = {
-          margin = {
-            horizontal = 0,
-            vertical = 0,
-          },
           placement = {
             vertical = "bottom",
-            horizontal = "left",
+            horizontal = "right",
           },
-        },
-        hide = {
-          focused_win = true,
         },
       })
     end,
