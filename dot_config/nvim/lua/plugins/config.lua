@@ -23,6 +23,7 @@ return {
         position = "right",
       },
       filesystem = {
+        hijack_netrw_behavior = "disabled",
         window = {
           mappings = {
             ["O"] = "system_open",
@@ -43,6 +44,18 @@ return {
           end
           vim.cmd("silent !start explorer " .. p)
         end,
+      },
+    },
+  },
+  {
+    "echasnovski/mini.files",
+    lazy = false,
+    opts = {
+      windows = {
+        width_preview = 40,
+      },
+      options = {
+        use_as_default_explorer = true,
       },
     },
   },
@@ -85,6 +98,75 @@ return {
         filter = {
           default = { "String", exclude = true },
         },
+      },
+    },
+  },
+  {
+    "ThePrimeagen/harpoon",
+    config = function()
+      local harpoon = require("harpoon")
+      local harpoon_extensions = require("harpoon.extensions")
+      harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
+      harpoon:extend(harpoon_extensions.builtins.navigate_with_number())
+      harpoon:extend({
+        UI_CREATE = function(cx)
+          vim.keymap.set("n", "<C-v>", function()
+            harpoon.ui:select_menu_item({ vsplit = true })
+          end, { buffer = cx.bufnr })
+
+          vim.keymap.set("n", "<C-s>", function()
+            harpoon.ui:select_menu_item({ split = true })
+          end, { buffer = cx.bufnr })
+
+          vim.keymap.set("n", "<C-t>", function()
+            harpoon.ui:select_menu_item({ tabedit = true })
+          end, { buffer = cx.bufnr })
+        end,
+      })
+    end,
+  },
+  {
+    "nvimdev/dashboard-nvim",
+    opts = {
+      theme = "hyper",
+      config = {
+        packages = { enable = false },
+        week_header = {
+          enable = true,
+          concat = "Enjoy!󰒲",
+        },
+        shortcut = {
+          {
+            action = "lua LazyVim.pick.config_files()()",
+            desc = "Config ",
+            key = "c",
+          },
+          {
+            action = 'lua require("persistence").load()',
+            desc = "Restore Session ",
+            key = "s",
+          },
+          {
+            action = "LazyExtras",
+            desc = "Lazy Extras ",
+            key = "x",
+          },
+          {
+            action = "Lazy",
+            desc = "Lazy ",
+            key = "l",
+          },
+          {
+            action = function()
+              vim.api.nvim_input("<cmd>qa<cr>")
+            end,
+            desc = "Quit ",
+            key = "q",
+          },
+        },
+        footer = function()
+          return { "" }
+        end,
       },
     },
   },

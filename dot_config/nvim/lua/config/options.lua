@@ -21,7 +21,7 @@ vim.opt.spell = true
 vim.opt.spelloptions = "camel"
 vim.opt.spelllang = { "en_us" }
 
-vim.g.snacks_animate = false
+-- vim.g.snacks_animate = false
 
 if vim.g.neovide == true then
   -- disabled all animation

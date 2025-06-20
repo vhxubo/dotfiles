@@ -1,4 +1,5 @@
 return {
+  { "dmmulroy/ts-error-translator.nvim" },
   -- filename
   {
     "b0o/incline.nvim",

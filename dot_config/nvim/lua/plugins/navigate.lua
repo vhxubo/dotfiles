@@ -87,4 +87,10 @@ return {
       vim.keymap.set("n", "<leader>ww", focus_window)
     end,
   },
+  {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" },
+    opts = {},
+  },
 }
