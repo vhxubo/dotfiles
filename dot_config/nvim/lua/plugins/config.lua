@@ -60,20 +60,14 @@ return {
     },
   },
   {
-    "mini.surround",
+    "echasnovski/mini.surround",
     opts = {
       custom_surroundings = {
-        -- The `[%p%w]` is the "punctuaion+alphanumeric` part
-        t = { input = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" } },
-        T = {
-          input = { "<(%w+)[^<>]->.-</%1>", "^<()%w+().*</()%w+()>$" },
-          output = function()
-            local tag_name = MiniSurround.user_input("Tag name")
-            if tag_name == nil then
-              return nil
-            end
-            return { left = tag_name, right = tag_name }
-          end,
+        t = {
+          input = {
+            "<([%p%w]-)%f[^<%w][^<>]->.-</%1>",
+            "^<.->().*()</[^/]->$",
+          },
         },
       },
     },
@@ -227,7 +221,6 @@ return {
       for _, v in pairs(highlighters) do
         table.insert(opts.highlighters, v)
       end
-      table.insert(opts.highlighters, {})
     end,
   },
 }

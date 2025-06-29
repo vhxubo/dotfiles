@@ -1,21 +1,17 @@
 return {
   {
     "ravitemer/mcphub.nvim",
-    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "yetone/avante.nvim",
     },
     build = "pnpm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
-    config = function()
-      require("mcphub").setup({
-        extensions = {
-          avante = {
-            make_slash_commands = true, -- make /slash commands from MCP server prompts
-          },
+    opts = {
+      extensions = {
+        avante = {
+          make_slash_commands = true, -- make /slash commands from MCP server prompts
         },
-      })
-    end,
+      },
+    },
   },
   {
     "yetone/avante.nvim",
@@ -68,7 +64,6 @@ return {
       "stevearc/dressing.nvim", -- for input provider dressing
       "folke/snacks.nvim", -- for input provider snacks
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
