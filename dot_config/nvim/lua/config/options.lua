@@ -38,3 +38,8 @@ if vim.g.neovide == true then
 
   vim.api.nvim_set_keymap("n", "<F11>", ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>", {})
 end
+
+
+-- Disable 'u' and 'U' in Visual mode
+vim.keymap.set('v', 'u', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('v', 'U', '<Nop>', { noremap = true, silent = true })

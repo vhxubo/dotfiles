@@ -1,5 +1,4 @@
 return {
-  { "dmmulroy/ts-error-translator.nvim" },
   -- filename
   {
     "b0o/incline.nvim",
@@ -48,4 +47,47 @@ return {
       },
     },
   },
+  {
+    "navarasu/onedark.nvim",
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require("onedark").setup({
+        toggle_style_key = "<leader>ts",
+        -- transparent = true,
+        -- Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+        style = "cool",
+      })
+      -- Enble theme
+      require("onedark").load()
+    end,
+  },
+  {
+    "tamton-aquib/duck.nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>dd", function()
+        require("duck").hatch()
+      end, {})
+      vim.keymap.set("n", "<leader>dk", function()
+        require("duck").cook()
+      end, {})
+      vim.keymap.set("n", "<leader>da", function()
+        require("duck").cook_all()
+      end, {})
+    end,
+  },
+  {
+    "mvllow/modes.nvim",
+    tag = "v0.2.1",
+    config = function()
+      require("modes").setup()
+    end,
+  },
+  -- {
+  --   "uga-rosa/ccc.nvim",
+  --   opts = {
+  --     highlighter = {
+  --       auto_enable = true,
+  --     },
+  --   },
+  -- },
 }
